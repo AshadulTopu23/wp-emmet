@@ -1,0 +1,492 @@
+<?php
+/**
+ * Plugin Name: Custom Elementor Breakpoints
+ * Plugin URI: #
+ * Description: Adds custom responsive breakpoints to Elementor for better design control
+ * Version: 1.0.0
+ * Author: Your Name
+ * Author URI: #
+ * Text Domain: at-elementor-breakpoints
+ * Requires at least: 5.0
+ * Requires PHP: 7.0
+ * Elementor tested up to: 3.16.0
+ */
+
+// Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Main Custom Elementor Breakpoints Class
+ */
+final class Custom_Elementor_Breakpoints
+{
+    /**
+     * Plugin Version
+     * @var string The plugin version.
+     */
+    const VERSION = '1.0.0';
+
+    /**
+     * Minimum Elementor Version
+     * @var string Minimum Elementor version required to run the plugin.
+     */
+    const MINIMUM_ELEMENTOR_VERSION = '3.0.0';
+
+    /**
+     * Minimum PHP Version
+     * @var string Minimum PHP version required to run the plugin.
+     */
+    const MINIMUM_PHP_VERSION = '7.0';
+
+    /**
+     * Instance
+     * @var Custom_Elementor_Breakpoints The single instance of the class.
+     */
+    private static $_instance = null;
+
+    /**
+     * Instance
+     * Ensures only one instance of the class is loaded or can be loaded.
+     * @return Custom_Elementor_Breakpoints An instance of the class.
+     */
+    public static function instance()
+    {
+        if (is_null(self::$_instance)) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        // Load translation
+        add_action('init', array($this, 'i18n'));
+
+        // Initialize the plugin
+        add_action('plugins_loaded', array($this, 'init'));
+    }
+
+    /**
+     * Load Textdomain
+     */
+    public function i18n()
+    {
+        load_plugin_textdomain('at-elementor-breakpoints');
+    }
+
+    /**
+     * Initialize the plugin
+     * Check for required plugin dependencies and proper versions
+     */
+    public function init()
+    {
+        // Check if Elementor is installed and activated
+        if (!did_action('elementor/loaded')) {
+            add_action('admin_notices', array($this, 'admin_notice_missing_elementor'));
+            return;
+        }
+
+        // Check for required Elementor version
+        if (!version_compare(ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=')) {
+            add_action('admin_notices', array($this, 'admin_notice_minimum_elementor_version'));
+            return;
+        }
+
+        // Check for required PHP version
+        if (version_compare(PHP_VERSION, self::MINIMUM_PHP_VERSION, '<')) {
+            add_action('admin_notices', array($this, 'admin_notice_minimum_php_version'));
+            return;
+        }
+
+        // Add Plugin actions
+        $this->add_actions();
+    }
+
+    /**
+     * Admin notice for missing Elementor
+     */
+    public function admin_notice_missing_elementor()
+    {
+        if (isset($_GET['activate'])) {
+            unset($_GET['activate']);
+        }
+
+        $message = sprintf(
+            /* translators: 1: Plugin name 2: Elementor */
+            esc_html__('"%1$s" requires "%2$s" to be installed and activated.', 'at-elementor-breakpoints'),
+            '<strong>' . esc_html__('Custom Elementor Breakpoints', 'at-elementor-breakpoints') . '</strong>',
+            '<strong>' . esc_html__('Elementor', 'at-elementor-breakpoints') . '</strong>'
+        );
+
+        printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
+    }
+
+    /**
+     * Admin notice for minimum Elementor version
+     */
+    public function admin_notice_minimum_elementor_version()
+    {
+        if (isset($_GET['activate'])) {
+            unset($_GET['activate']);
+        }
+
+        $message = sprintf(
+            /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'at-elementor-breakpoints'),
+            '<strong>' . esc_html__('Custom Elementor Breakpoints', 'at-elementor-breakpoints') . '</strong>',
+            '<strong>' . esc_html__('Elementor', 'at-elementor-breakpoints') . '</strong>',
+            self::MINIMUM_ELEMENTOR_VERSION
+        );
+
+        printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
+    }
+
+    /**
+     * Admin notice for minimum PHP version
+     */
+    public function admin_notice_minimum_php_version()
+    {
+        if (isset($_GET['activate'])) {
+            unset($_GET['activate']);
+        }
+
+        $message = sprintf(
+            /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'at-elementor-breakpoints'),
+            '<strong>' . esc_html__('Custom Elementor Breakpoints', 'at-elementor-breakpoints') . '</strong>',
+            '<strong>' . esc_html__('PHP', 'at-elementor-breakpoints') . '</strong>',
+            self::MINIMUM_PHP_VERSION
+        );
+
+        printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
+    }
+
+    /**
+     * Add all the actions needed for the plugin functionality
+     */
+    public function add_actions()
+    {
+        // Add custom breakpoints
+        add_filter('elementor/breakpoints/breakpoints', array($this, 'add_custom_breakpoints'));
+
+        // Ensure breakpoints compatibility
+        add_action('elementor/init', array($this, 'ensure_breakpoints_compatibility'));
+
+        // Add admin notice after activation
+        add_action('admin_notices', array($this, 'admin_notice_after_activation'));
+
+        // Add settings link on plugins page
+        add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'add_settings_link'));
+
+        // Add a notification to regenerate CSS after plugin activation
+        register_activation_hook(__FILE__, array($this, 'activation_hook'));
+    }
+
+    /**
+     * Plugin activation hook
+     */
+    public function activation_hook()
+    {
+        // Set a transient to display CSS regeneration notice
+        set_transient('custom_breakpoints_activated', true, 60);
+    }
+
+    /**
+     * Admin notice after plugin activation
+     */
+    public function admin_notice_after_activation()
+    {
+        // Check if our transient is set
+        if (get_transient('custom_breakpoints_activated')) {
+            ?>
+            <div class="notice notice-info is-dismissible">
+                <p><?php _e('Custom Elementor Breakpoints activated! Please <a href="admin.php?page=elementor-tools#tab-general">regenerate CSS</a> in Elementor to apply all breakpoints correctly.', 'at-elementor-breakpoints'); ?></p>
+            </div>
+            <?php
+            // Delete the transient
+            delete_transient('custom_breakpoints_activated');
+        }
+    }
+
+    /**
+     * Add settings link on plugins page
+     */
+    public function add_settings_link($links)
+    {
+        $settings_link = '<a href="admin.php?page=elementor#tab-responsive">' . __('Settings', 'at-elementor-breakpoints') . '</a>';
+        array_unshift($links, $settings_link);
+        return $links;
+    }
+
+    /**
+     * Make sure our custom breakpoints are compatible with Elementor
+     */
+    public function ensure_breakpoints_compatibility()
+    {
+        // For Elementor 3.4.0 and above
+        if (class_exists('\Elementor\Plugin') && method_exists('\Elementor\Plugin', 'instance')) {
+            // Refresh breakpoints
+            \Elementor\Plugin::$instance->breakpoints->refresh();
+            
+            // Clear cache if we're on Elementor pages
+            add_action('admin_init', function () {
+                if (isset($_GET['page']) && (strpos($_GET['page'], 'elementor') !== false) {
+                    \Elementor\Plugin::$instance->files_manager->clear_cache();
+                }
+            });
+        }
+    }
+
+    /**
+     * Add custom breakpoints to Elementor
+     * 
+     * @param array $breakpoints Current Elementor breakpoints
+     * @return array Modified breakpoints array
+     */
+    public function add_custom_breakpoints($breakpoints)
+    {
+        // XXL Desktop breakpoint (1600px)
+        $breakpoints['xxl'] = [
+            'label' => __('XXL Desktop', 'at-elementor-breakpoints'),
+            'default_value' => 1600,
+            'direction' => 'min',
+        ];
+
+        // XL Desktop breakpoint (1400px)
+        $breakpoints['xl'] = [
+            'label' => __('XL Desktop', 'at-elementor-breakpoints'),
+            'default_value' => 1400,
+            'direction' => 'min',
+        ];
+
+        // Laptop breakpoint (1200px)
+        $breakpoints['laptop'] = [
+            'label' => __('Laptop', 'at-elementor-breakpoints'),
+            'default_value' => 1200,
+            'direction' => 'max',
+        ];
+
+        // Medium Desktop breakpoint (992px)
+        $breakpoints['medium'] = [
+            'label' => __('Medium Desktop', 'at-elementor-breakpoints'),
+            'default_value' => 992,
+            'direction' => 'max',
+        ];
+
+        // Mobile Extra breakpoint (576px)
+        $breakpoints['mobile_extra'] = [
+            'label' => __('Mobile Extra', 'at-elementor-breakpoints'),
+            'default_value' => 576,
+            'direction' => 'max',
+        ];
+
+        // Small Mobile breakpoint (480px)
+        $breakpoints['small_mobile'] = [
+            'label' => __('Small Mobile', 'at-elementor-breakpoints'),
+            'default_value' => 480,
+            'direction' => 'max',
+        ];
+
+        return $breakpoints;
+    }
+}
+
+// Initialize the plugin
+Custom_Elementor_Breakpoints::instance();
+
+/**
+ * Add helper function for checking custom breakpoints
+ * Usage: if (is_xxl_desktop()) { // do something for XXL screens }
+ */
+function is_xxl_desktop()
+{
+    return (isset($_COOKIE['elementor-device-mode']) && $_COOKIE['elementor-device-mode'] === 'xxl');
+}
+
+function is_xl_desktop()
+{
+    return (isset($_COOKIE['elementor-device-mode']) && $_COOKIE['elementor-device-mode'] === 'xl');
+}
+
+function is_laptop()
+{
+    return (isset($_COOKIE['elementor-device-mode']) && $_COOKIE['elementor-device-mode'] === 'laptop');
+}
+
+function is_medium_desktop()
+{
+    return (isset($_COOKIE['elementor-device-mode']) && $_COOKIE['elementor-device-mode'] === 'medium');
+}
+
+function is_mobile_extra()
+{
+    return (isset($_COOKIE['elementor-device-mode']) && $_COOKIE['elementor-device-mode'] === 'mobile_extra');
+}
+
+function is_small_mobile()
+{
+    return (isset($_COOKIE['elementor-device-mode']) && $_COOKIE['elementor-device-mode'] === 'small_mobile');
+}
+
+/**
+ * Add custom CSS for admin area to fix any UI issues with custom breakpoints
+ */
+function custom_breakpoints_admin_css()
+{
+    // Only add on Elementor admin pages
+    $screen = get_current_screen();
+    if (!$screen || strpos($screen->id, 'elementor') === false) {
+        return;
+    }
+    ?>
+    <style>
+        /* Fix for device mode buttons in Elementor UI */
+        .elementor-panel .elementor-panel-footer-sub-menu-item.elementor-responsive-switcher-xxl .eicon:before,
+        .elementor-device-xxl .eicon-device-desktop:before {
+            content: '\e885';
+            /* Large monitor icon */
+        }
+
+        .elementor-panel .elementor-panel-footer-sub-menu-item.elementor-responsive-switcher-xl .eicon:before,
+        .elementor-device-xl .eicon-device-desktop:before {
+            content: '\e885';
+            /* Large monitor icon */
+        }
+
+        .elementor-panel .elementor-panel-footer-sub-menu-item.elementor-responsive-switcher-laptop .eicon:before,
+        .elementor-device-laptop .eicon-device-laptop:before {
+            content: '\e8e5';
+            /* Laptop icon */
+        }
+
+        .elementor-panel .elementor-panel-footer-sub-menu-item.elementor-responsive-switcher-medium .eicon:before,
+        .elementor-device-medium .eicon-device-laptop:before {
+            content: '\e8e5';
+            /* Laptop icon */
+        }
+
+        .elementor-panel .elementor-panel-footer-sub-menu-item.elementor-responsive-switcher-mobile_extra .eicon:before,
+        .elementor-device-mobile_extra .eicon-device-mobile:before {
+            content: '\e8f5';
+            /* Mobile icon */
+        }
+
+        .elementor-panel .elementor-panel-footer-sub-menu-item.elementor-responsive-switcher-small_mobile .eicon:before,
+        .elementor-device-small_mobile .eicon-device-mobile:before {
+            content: '\e8f5';
+            /* Mobile icon */
+        }
+    </style>
+    <?php
+}
+add_action('admin_head', 'custom_breakpoints_admin_css');
+
+/**
+ * Add custom CSS to frontend
+ */
+function custom_breakpoints_frontend_css()
+{
+    if (!class_exists('\Elementor\Plugin')) {
+        return;
+    }
+
+    // Only add when editing with Elementor
+    if (\Elementor\Plugin::$instance->preview->is_preview_mode() || \Elementor\Plugin::$instance->editor->is_edit_mode()) {
+    ?>
+        <style>
+            /* Add any frontend CSS needed */
+            @media (min-width: 1600px) {
+                .elementor-device-mode-xxl .elementor-edit-area {
+                    width: 100%;
+                }
+            }
+
+            @media (min-width: 1400px) and (max-width: 1599px) {
+                .elementor-device-mode-xl .elementor-edit-area {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 1200px) {
+                .elementor-device-mode-laptop .elementor-edit-area {
+                    width: 1200px;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .elementor-device-mode-medium .elementor-edit-area {
+                    width: 992px;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .elementor-device-mode-mobile_extra .elementor-edit-area {
+                    width: 576px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .elementor-device-mode-small_mobile .elementor-edit-area {
+                    width: 480px;
+                }
+            }
+        </style>
+    <?php
+    }
+}
+add_action('wp_head', 'custom_breakpoints_frontend_css');
+
+/**
+ * Add settings page for premium version promotion
+ */
+function custom_breakpoints_register_settings_page()
+{
+    add_submenu_page(
+        'elementor',
+        __('Custom Breakpoints Settings', 'at-elementor-breakpoints'),
+        __('Custom Breakpoints', 'at-elementor-breakpoints'),
+        'manage_options',
+        'at-elementor-breakpoints',
+        'custom_breakpoints_settings_page_content'
+    );
+}
+add_action('admin_menu', 'custom_breakpoints_register_settings_page');
+
+/**
+ * Settings page content
+ */
+function custom_breakpoints_settings_page_content()
+{
+    ?>
+    <div class="wrap">
+        <h1><?php _e('Custom Elementor Breakpoints Settings', 'at-elementor-breakpoints'); ?></h1>
+
+        <div class="card">
+            <h2><?php _e('Using Custom Breakpoints', 'at-elementor-breakpoints'); ?></h2>
+            <p><?php _e('This plugin adds the following custom breakpoints to Elementor:', 'at-elementor-breakpoints'); ?></p>
+            <ul style="list-style-type: disc; margin-left: 20px;">
+                <li><?php _e('XXL Desktop: 1600px and up', 'at-elementor-breakpoints'); ?></li>
+                <li><?php _e('XL Desktop: 1400px and up', 'at-elementor-breakpoints'); ?></li>
+                <li><?php _e('Laptop: Under 1200px', 'at-elementor-breakpoints'); ?></li>
+                <li><?php _e('Medium Desktop: Under 992px', 'at-elementor-breakpoints'); ?></li>
+                <li><?php _e('Mobile Extra: Under 576px', 'at-elementor-breakpoints'); ?></li>
+                <li><?php _e('Small Mobile: Under 480px', 'at-elementor-breakpoints'); ?></li>
+            </ul>
+
+            <h3><?php _e('Important Instructions', 'at-elementor-breakpoints'); ?></h3>
+            <ol style="list-style-type: decimal; margin-left: 20px;">
+                <li><?php _e('After activating the plugin, go to Elementor → Tools → Regenerate CSS.', 'at-elementor-breakpoints'); ?></li>
+                <li><?php _e('The new breakpoints will be available in the responsive controls in the Elementor editor.', 'at-elementor-breakpoints'); ?></li>
+                <li><?php _e('You can click the device icons in the bottom bar of the editor to preview your content at different breakpoints.', 'at-elementor-breakpoints'); ?></li>
+            </ol>
+
+            <p><a href="admin.php?page=elementor-tools#tab-general" class="button button-primary"><?php _e('Go to Regenerate CSS', 'at-elementor-breakpoints'); ?></a></p>
+        </div>
+    </div>
+<?php
+}
