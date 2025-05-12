@@ -1,8 +1,412 @@
 {
   "Elementor": {
-    "e_content_start": {
-      "scope": "php",
-      "prefix": "econtentstart",
+    "WidgetBoilerplate": {
+      "prefix": "Ewidget",
+      "body": [
+        "<?php",
+        "/**",
+        " * ${1:Widget Name}",
+        " *",
+        " * @package ${2:Package}",
+        " */",
+        "",
+        "namespace ${3:Namespace};",
+        "",
+        "use Elementor\\Widget_Base;",
+        "use Elementor\\Controls_Manager;",
+        "use Elementor\\Group_Control_Typography;",
+        "use Elementor\\Group_Control_Background;",
+        "use Elementor\\Group_Control_Border;",
+        "use Elementor\\Group_Control_Box_Shadow;",
+        "",
+        "class ${4:Widget_Class_Name} extends Widget_Base {",
+        "",
+        "\tpublic function get_name() {",
+        "\t\treturn '${5:widget-name}';",
+        "\t}",
+        "",
+        "\tpublic function get_title() {",
+        "\t\treturn __( '${6:Widget Title}', '${7:text-domain}' );",
+        "\t}",
+        "",
+        "\tpublic function get_icon() {",
+        "\t\treturn '${8:eicon-icon-name}';",
+        "\t}",
+        "",
+        "\tpublic function get_categories() {",
+        "\t\treturn [ '${9:category-name}' ];",
+        "\t}",
+        "",
+        "\tprotected function _register_controls() {",
+        "\t\t// Content Tab",
+        "\t\t$this->start_controls_section(",
+        "\t\t\t'content_section',",
+        "\t\t\t[",
+        "\t\t\t\t'label' => esc_html__( 'Content', '${7:text-domain}' ),",
+        "\t\t\t\t'tab' => Controls_Manager::TAB_CONTENT,",
+        "\t\t\t]",
+        "\t\t);",
+        "\t\t",
+        "\t\t// Add controls here",
+        "\t\t",
+        "\t\t$this->end_controls_section();",
+        "",
+        "\t\t// Style Tab",
+        "\t\t$this->start_controls_section(",
+        "\t\t\t'style_section',",
+        "\t\t\t[",
+        "\t\t\t\t'label' => esc_html__( 'Style', '${7:text-domain}' ),",
+        "\t\t\t\t'tab' => Controls_Manager::TAB_STYLE,",
+        "\t\t\t]",
+        "\t\t);",
+        "\t\t",
+        "\t\t// Add style controls here",
+        "\t\t",
+        "\t\t$this->end_controls_section();",
+        "\t}",
+        "",
+        "\tprotected function render() {",
+        "\t\t\$settings = \$this->get_settings_for_display();",
+        "\t\t// Output the widget HTML",
+        "\t}",
+        "",
+        "\tprotected function _content_template() {",
+        "\t\t// JS template for editor preview",
+        "\t}",
+        "}"
+      ],
+      "description": "Complete Elementor widget boilerplate"
+    },
+    "TextControl": {
+      "prefix": "Etext",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::TEXT,",
+        "\t\t'default' => esc_html__( '${4:Default text}', '${3:text-domain}' ),",
+        "\t\t'label_block' => ${5:true},",
+        "\t]",
+        ");"
+      ],
+      "description": "Text control"
+    },
+    "TextareaControl": {
+      "prefix": "Etextarea",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::TEXTAREA,",
+        "\t\t'rows' => ${4:10},",
+        "\t\t'default' => esc_html__( '${5:Default text}', '${3:text-domain}' ),",
+        "\t]",
+        ");"
+      ],
+      "description": "Textarea control"
+    },
+    "WysiwygControl": {
+      "prefix": "Ewysiwyg",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::WYSIWYG,",
+        "\t\t'default' => esc_html__( '${4:Default content}', '${3:text-domain}' ),",
+        "\t]",
+        ");"
+      ],
+      "description": "WYSIWYG editor control"
+    },
+    "SelectControl": {
+      "prefix": "Eselect",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::SELECT,",
+        "\t\t'default' => '${4:default_value}',",
+        "\t\t'options' => [",
+        "\t\t\t'${5:value1}' => esc_html__( '${6:Label 1}', '${3:text-domain}' ),",
+        "\t\t\t'${7:value2}' => esc_html__( '${8:Label 2}', '${3:text-domain}' ),",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Select dropdown control"
+    },
+    "ColorControl": {
+      "prefix": "Ecolor",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::COLOR,",
+        "\t\t'selectors' => [",
+        "\t\t\t'{{WRAPPER}} ${4:.selector}' => 'color: {{VALUE}}',",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Color picker control"
+    },
+    "ImageControl": {
+      "prefix": "Eimage",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::MEDIA,",
+        "\t\t'default' => [",
+        "\t\t\t'url' => \\Elementor\\Utils::get_placeholder_image_src(),",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Image upload control"
+    },
+    "IconControl": {
+      "prefix": "Eicon",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::ICONS,",
+        "\t\t'default' => [",
+        "\t\t\t'value' => '${4:fas fa-star}',",
+        "\t\t\t'library' => '${5:fa-solid}',",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Icon selector control"
+    },
+    "SliderControl": {
+      "prefix": "Eslider",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::SLIDER,",
+        "\t\t'size_units' => [ 'px', '%' ],",
+        "\t\t'range' => [",
+        "\t\t\t'px' => [",
+        "\t\t\t\t'min' => ${4:0},",
+        "\t\t\t\t'max' => ${5:1000},",
+        "\t\t\t\t'step' => ${6:1},",
+        "\t\t\t],",
+        "\t\t],",
+        "\t\t'selectors' => [",
+        "\t\t\t'{{WRAPPER}} ${7:.selector}' => 'font-size: {{SIZE}}{{UNIT}};',",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Slider control"
+    },
+    "SwitchControl": {
+      "prefix": "Eswitch",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::SWITCHER,",
+        "\t\t'label_on' => esc_html__( '${4:Show}', '${3:text-domain}' ),",
+        "\t\t'label_off' => esc_html__( '${5:Hide}', '${3:text-domain}' ),",
+        "\t\t'return_value' => '${6:yes}',",
+        "\t\t'default' => '${7:yes}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Switch toggle control"
+    },
+    "RepeaterControl": {
+      "prefix": "Erepeater",
+      "body": [
+        "$repeater = new \\Elementor\\Repeater();",
+        "",
+        "$repeater->add_control(",
+        "\t'${1:item_title}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Title}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::TEXT,",
+        "\t\t'default' => esc_html__( '${4:Default Title}', '${3:text-domain}' ),",
+        "\t\t'label_block' => true,",
+        "\t]",
+        ");",
+        "",
+        "$this->add_control(",
+        "\t'${5:repeater_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${6:Repeater Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::REPEATER,",
+        "\t\t'fields' => $repeater->get_controls(),",
+        "\t\t'default' => [",
+        "\t\t\t[",
+        "\t\t\t\t'${1:item_title}' => esc_html__( '${7:Item 1}', '${3:text-domain}' ),",
+        "\t\t\t],",
+        "\t\t\t[",
+        "\t\t\t\t'${1:item_title}' => esc_html__( '${8:Item 2}', '${3:text-domain}' ),",
+        "\t\t\t],",
+        "\t\t],",
+        "\t\t'title_field' => '{{{ ${1:item_title} }}}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Repeater control"
+    },
+    "TypographyGroup": {
+      "prefix": "Etypo",
+      "body": [
+        "$this->add_group_control(",
+        "\tGroup_Control_Typography::get_type(),",
+        "\t[",
+        "\t\t'name' => '${1:typography_name}',",
+        "\t\t'selector' => '{{WRAPPER}} ${2:.selector}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Typography group control"
+    },
+    "BackgroundGroup": {
+      "prefix": "Ebackground",
+      "body": [
+        "$this->add_group_control(",
+        "\tGroup_Control_Background::get_type(),",
+        "\t[",
+        "\t\t'name' => '${1:background_name}',",
+        "\t\t'label' => esc_html__( '${2:Background}', '${3:text-domain}' ),",
+        "\t\t'types' => [ 'classic', 'gradient' ],",
+        "\t\t'selector' => '{{WRAPPER}} ${4:.selector}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Background group control"
+    },
+    "BorderGroup": {
+      "prefix": "Eborder",
+      "body": [
+        "$this->add_group_control(",
+        "\tGroup_Control_Border::get_type(),",
+        "\t[",
+        "\t\t'name' => '${1:border_name}',",
+        "\t\t'selector' => '{{WRAPPER}} ${2:.selector}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Border group control"
+    },
+    "BoxShadowGroup": {
+      "prefix": "Eboxshadow",
+      "body": [
+        "$this->add_group_control(",
+        "\tGroup_Control_Box_Shadow::get_type(),",
+        "\t[",
+        "\t\t'name' => '${1:shadow_name}',",
+        "\t\t'selector' => '{{WRAPPER}} ${2:.selector}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Box shadow group control"
+    },
+    "Section": {
+      "prefix": "Esection",
+      "body": [
+        "$this->start_controls_section(",
+        "\t'${1:section_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Section Label}', '${3:text-domain}' ),",
+        "\t\t'tab' => Controls_Manager::TAB_${4:CONTENT},",
+        "\t]",
+        ");",
+        "",
+        "// Add controls here",
+        "",
+        "$this->end_controls_section();"
+      ],
+      "description": "Control section"
+    },
+    "Tabs": {
+      "prefix": "Etabs",
+      "body": [
+        "$this->start_controls_tabs(",
+        "\t'${1:tabs_name}'",
+        ");",
+        "",
+        "$this->start_controls_tab(",
+        "\t'${2:tab_name}_normal',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${3:Normal}', '${4:text-domain}' ),",
+        "\t]",
+        ");",
+        "",
+        "// Normal tab controls",
+        "",
+        "$this->end_controls_tab();",
+        "",
+        "$this->start_controls_tab(",
+        "\t'${2:tab_name}_hover',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${5:Hover}', '${4:text-domain}' ),",
+        "\t]",
+        ");",
+        "",
+        "// Hover tab controls",
+        "",
+        "$this->end_controls_tab();",
+        "",
+        "$this->end_controls_tabs();"
+      ],
+      "description": "Control tabs"
+    },
+    "RenderMethod": {
+      "prefix": "Erender",
+      "body": [
+        "protected function render() {",
+        "\t$settings = $this->get_settings_for_display();",
+        "\t?>",
+        "\t<div class=\"${1:widget-class}\">",
+        "\t\t<?php if ( ! empty( \$settings['title'] ) : ?>",
+        "\t\t\t<h2><?php echo esc_html( \$settings['title'] ); ?></h2>",
+        "\t\t<?php endif; ?>",
+        "\t</div>",
+        "\t<?php",
+        "}"
+      ],
+      "description": "Render method"
+    },
+    "ContentTemplate": {
+      "prefix": "Etemplate",
+      "body": [
+        "protected function _content_template() {",
+        "\t?>",
+        "\t<#",
+        "\t\tif ( settings.title ) { #>",
+        "\t\t\t<h2>{{{ settings.title }}}</h2>",
+        "\t\t<# } #>",
+        "\t<?php",
+        "}"
+      ],
+      "description": "Content template method"
+    },
+    "RenderIcon": {
+      "prefix": "Erendericon",
+      "body": [
+        "<?php \\Elementor\\Icons_Manager::render_icon( \$settings['${1:icon}'], [ 'aria-hidden' => 'true' ] ); ?>"
+      ],
+      "description": "Render icon in template"
+    },
+    "ContentStart": {
+      "prefix": "Econtentstart",
       "body": [
         "$this->start_controls_section(",
         "    'content',",
@@ -15,9 +419,8 @@
       ],
       "description": "Starts a content section in Elementor widget"
     },
-    "e_style_content": {
-      "scope": "php",
-      "prefix": "estylecontent",
+    "StyleContent": {
+      "prefix": "Estyletab",
       "body": [
         "$this->start_controls_section(",
         "    'style',",
@@ -31,9 +434,8 @@
       ],
       "description": "Starts a style section in Elementor widget"
     },
-    "e_text": {
-      "scope": "php",
-      "prefix": "etext",
+    "TextTitle": {
+      "prefix": "Etexttitle",
       "body": [
         "$this->add_control(",
         "    'title',",
@@ -47,9 +449,8 @@
       ],
       "description": "Adds a text control for titles"
     },
-    "e_text_subtitle": {
-      "scope": "php",
-      "prefix": "etextsubtitle",
+    "TextSubtitle": {
+      "prefix": "Etextsubtitle",
       "body": [
         "$this->add_control(",
         "    'subtitle',",
@@ -63,9 +464,8 @@
       ],
       "description": "Adds a text control for subtitles"
     },
-    "e_text_subheading": {
-      "scope": "php",
-      "prefix": "etextsubheading",
+    "TextSubheading": {
+      "prefix": "Etextsubheading",
       "body": [
         "$this->add_control(",
         "    'subheading',",
@@ -79,9 +479,8 @@
       ],
       "description": "Adds a text control for subheadings"
     },
-    "e_text_heading": {
-      "scope": "php",
-      "prefix": "etextheading",
+    "TextHeading": {
+      "prefix": "Etextheading",
       "body": [
         "$this->add_control(",
         "    'heading',",
@@ -95,9 +494,8 @@
       ],
       "description": "Adds a text control for headings"
     },
-    "e_text_headingtitle": {
-      "scope": "php",
-      "prefix": "etextheadingtitle",
+    "TextHeadingTitle": {
+      "prefix": "Etextheadingtitle",
       "body": [
         "$this->add_control(",
         "    'headingtitle',",
@@ -111,9 +509,8 @@
       ],
       "description": "Adds a textarea for heading titles"
     },
-    "e_text_button": {
-      "scope": "php",
-      "prefix": "etextbutton",
+    "TextButton": {
+      "prefix": "Etextbutton",
       "body": [
         "$this->add_control(",
         "    'buttontext',",
@@ -143,9 +540,8 @@
       ],
       "description": "Adds button text and link controls"
     },
-    "e_number": {
-      "scope": "php",
-      "prefix": "enumber",
+    "NumberControl": {
+      "prefix": "Enumber",
       "body": [
         "$this->add_control(",
         "    'price',",
@@ -161,9 +557,8 @@
       ],
       "description": "Adds a number control with min/max/step"
     },
-    "e_textarea": {
-      "scope": "php",
-      "prefix": "etextarea",
+    "TextareaDescription": {
+      "prefix": "Etextareadesc",
       "body": [
         "$this->add_control(",
         "    'description',",
@@ -177,9 +572,8 @@
       ],
       "description": "Adds a textarea control for descriptions"
     },
-    "e_wysi": {
-      "scope": "php",
-      "prefix": "ewisi",
+    "WysiwygControl": {
+      "prefix": "Ewisi",
       "body": [
         "$this->add_control(",
         "    'item_description',",
@@ -192,9 +586,8 @@
       ],
       "description": "Adds a WYSIWYG editor control"
     },
-    "e_select": {
-      "scope": "php",
-      "prefix": "eselect",
+    "SelectStyle": {
+      "prefix": "Eselectstyle",
       "body": [
         "$this->add_control(",
         "    'style_design',",
@@ -211,12 +604,11 @@
       ],
       "description": "Adds a dropdown select control"
     },
-    "e_color": {
-      "scope": "php",
-      "prefix": "ecolor",
+    "ColorControl": {
+      "prefix": "Ecolor",
       "body": [
         "$this->add_control(",
-        "    'spinner_color',",
+        "    '_color',",
         "    [",
         "        'label' => esc_html__( 'Color', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
@@ -228,9 +620,8 @@
       ],
       "description": "Adds a color picker control"
     },
-    "e_fontfamily": {
-      "scope": "php",
-      "prefix": "efontfamily",
+    "FontFamily": {
+      "prefix": "Efontfamily",
       "body": [
         "$this->add_control(",
         "    'font_family',",
@@ -246,9 +637,8 @@
       ],
       "description": "Adds a font family control"
     },
-    "e_date": {
-      "scope": "php",
-      "prefix": "edate",
+    "DateTime": {
+      "prefix": "Edatetime",
       "body": [
         "$this->add_control(",
         "    'due_date',",
@@ -260,9 +650,8 @@
       ],
       "description": "Adds a date-time picker control"
     },
-    "e_repeater": {
-      "scope": "php",
-      "prefix": "erepeater",
+    "RepeaterList": {
+      "prefix": "Erepeaterlist",
       "body": [
         "$repeater = new \\Elementor\\Repeater();",
         "",
@@ -306,9 +695,8 @@
       ],
       "description": "Adds a repeater control for lists"
     },
-    "e_tabs": {
-      "scope": "php",
-      "prefix": "etabs",
+    "StyleTabs": {
+      "prefix": "Estyletabs",
       "body": [
         "$this->start_controls_tabs(",
         "    'style_tabs'",
@@ -339,9 +727,8 @@
       ],
       "description": "Adds tabs for normal/hover states"
     },
-    "e_slider": {
-      "scope": "php",
-      "prefix": "eslider",
+    "SliderControl": {
+      "prefix": "Eslider",
       "body": [
         "$this->add_responsive_control(",
         "    'icon_size',",
@@ -368,12 +755,95 @@
       ],
       "description": "Adds a slider control for sizes"
     },
-    "e_margin": {
-      "scope": "php",
-      "prefix": "emargin",
+    "widthControl": {
+      "prefix": "Ewidth",
       "body": [
         "$this->add_responsive_control(",
-        "    'spinner_margin',",
+        "    '_width',",
+        "    [",
+        "        'label' => esc_html__( 'Width', 'plugin-name' ),",
+        "        'type' => \\Elementor\\Controls_Manager::SLIDER,",
+        "        'size_units' => [ 'px', '%' ],",
+        "        'range' => [",
+        "            'px' => [",
+        "                'min' => 1,",
+        "                'max' => 100,",
+        "                'step' => 1,",
+        "            ],",
+        "            '%' => [",
+        "                'min' => 1,",
+        "                'max' => 100,",
+        "            ],",
+        "        ],",
+        "        'selectors' => [",
+        "            '{{WRAPPER}} .selector' => 'width: {{SIZE}}{{UNIT}};',",
+        "        ],",
+        "    ]",
+        ");"
+      ],
+      "description": "Adds a slider control for width"
+    },
+    "heightControl": {
+      "prefix": "Eheight",
+      "body": [
+        "$this->add_responsive_control(",
+        "    '_height',",
+        "    [",
+        "        'label' => esc_html__( 'Height', 'plugin-name' ),",
+        "        'type' => \\Elementor\\Controls_Manager::SLIDER,",
+        "        'size_units' => [ 'px', '%' ],",
+        "        'range' => [",
+        "            'px' => [",
+        "                'min' => 1,",
+        "                'max' => 100,",
+        "                'step' => 1,",
+        "            ],",
+        "            '%' => [",
+        "                'min' => 1,",
+        "                'max' => 100,",
+        "            ],",
+        "        ],",
+        "        'selectors' => [",
+        "            '{{WRAPPER}} .selector' => 'height: {{SIZE}}{{UNIT}};',",
+        "        ],",
+        "    ]",
+        ");"
+      ],
+      "description": "Adds a slider control for height"
+    },
+    "sizeControl": {
+      "prefix": "Esize",
+      "body": [
+        "$this->add_responsive_control(",
+        "    'icon_size',",
+        "    [",
+        "        'label' => esc_html__( 'Size', 'plugin-name' ),",
+        "        'type' => \\Elementor\\Controls_Manager::SLIDER,",
+        "        'size_units' => [ 'px', '%' ],",
+        "        'range' => [",
+        "            'px' => [",
+        "                'min' => 1,",
+        "                'max' => 100,",
+        "                'step' => 1,",
+        "            ],",
+        "            '%' => [",
+        "                'min' => 1,",
+        "                'max' => 100,",
+        "            ],",
+        "        ],",
+        "        'selectors' => [",
+        "            '{{WRAPPER}} .selector' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',",
+        "        ],",
+        "    ]",
+        ");"
+      ],
+      "description": "Adds a slider control for sizes"
+    },
+    "MarginControl": {
+      "prefix": "Emargin",
+      "body": [
+        "$this->add_responsive_control(",
+        "    '_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -386,12 +856,11 @@
       ],
       "description": "Adds margin control with dimensions"
     },
-    "e_padding": {
-      "scope": "php",
-      "prefix": "epadding",
+    "PaddingControl": {
+      "prefix": "Epadding",
       "body": [
         "$this->add_responsive_control(",
-        "    'spinner_padding',",
+        "    '_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -404,9 +873,8 @@
       ],
       "description": "Adds padding control with dimensions"
     },
-    "e_link": {
-      "scope": "php",
-      "prefix": "elink",
+    "LinkControl": {
+      "prefix": "Elink",
       "body": [
         "$this->add_control(",
         "    'website_link',",
@@ -426,9 +894,8 @@
       ],
       "description": "Adds a URL control for links"
     },
-    "e_image": {
-      "scope": "php",
-      "prefix": "eimage",
+    "ImageUpload": {
+      "prefix": "Eimageupload",
       "body": [
         "$this->add_control(",
         "    'image',",
@@ -443,12 +910,11 @@
       ],
       "description": "Adds an image upload control"
     },
-    "e_icon": {
-      "scope": "php",
-      "prefix": "eicon",
+    "IconPicker": {
+      "prefix": "Eiconpicker",
       "body": [
         "$this->add_control(",
-        "    'spinner_icon',",
+        "    '_icon',",
         "    [",
         "        'label' => esc_html__( 'Icon', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::ICONS,",
@@ -461,9 +927,8 @@
       ],
       "description": "Adds an icon picker control"
     },
-    "e_box_shadow": {
-      "scope": "php",
-      "prefix": "eboxshadow",
+    "BoxShadow": {
+      "prefix": "Eshadow",
       "body": [
         "$this->add_group_control(",
         "    \\Elementor\\Group_Control_Box_Shadow::get_type(),",
@@ -475,26 +940,24 @@
       ],
       "description": "Adds a box shadow control"
     },
-    "e_typography": {
-      "scope": "php",
-      "prefix": "etypography",
+    "TypographyControl": {
+      "prefix": "Etypography",
       "body": [
         "$this->add_group_control(",
         "    \\Elementor\\Group_Control_Typography::get_type(),",
         "    [",
-        "        'name' => 'spinner_typography',",
+        "        'name' => '_typography',",
         "        'selector' => '{{WRAPPER}} .title',",
         "    ]",
         ");"
       ],
       "description": "Adds typography control"
     },
-    "e_border": {
-      "scope": "php",
-      "prefix": "eborder",
+    "BorderColor": {
+      "prefix": "Ebordercolor",
       "body": [
         "$this->add_control(",
-        "    'spinner_color',",
+        "    '_color',",
         "    [",
         "        'label' => esc_html__( 'Card Border Color', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
@@ -506,30 +969,29 @@
       ],
       "description": "Adds a border color control"
     },
-    "e_opacity": {
-      "scope": "php",
-      "prefix": "eopacity",
+    "OpacityControl": {
+      "prefix": "Eopacity",
       "body": [
         "$this->add_control(",
-        "    'border_color_timeline_opacity',",
+        "    '_opacity',",
         "    [",
         "        'label' => esc_html__( 'Border Color Opacity', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::SLIDER,",
         "        'range' => [",
         "            'min' => 0,",
-        "            'max' => 1.00,",
+        "            'max' => 1,",
+        "            'step' => 0.01,",
         "        ],",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .hisoty-inner:before' => 'opacity: {{SIZE}}',",
+        "            '{{WRAPPER}} .selector' => 'opacity: {{SIZE}}',",
         "        ],",
         "    ]",
         ");"
       ],
       "description": "Adds an opacity slider control"
     },
-    "e_background": {
-      "scope": "php",
-      "prefix": "ebackground",
+    "BackgroundControl": {
+      "prefix": "Ebackground",
       "body": [
         "$this->add_group_control(",
         "    \\Elementor\\Group_Control_Background::get_type(),",
@@ -543,9 +1005,8 @@
       ],
       "description": "Adds background control (classic/gradient/video)"
     },
-    "e_condition": {
-      "scope": "php",
-      "prefix": "econdition",
+    "Condition": {
+      "prefix": "Econdition",
       "body": [
         "'condition' => [",
         "    'style' => 'style_two'",
@@ -553,40 +1014,38 @@
       ],
       "description": "Adds a condition for control visibility"
     },
-    "e_css_text": {
-      "scope": "php",
-      "prefix": "ecsstext",
+    "CSSText": {
+      "prefix": "Ecsstext",
       "body": [
         "$this->add_responsive_control(",
-        "    'eael_accordion_height',",
+        "    'accordion_height',",
         "    [",
         "        'label' => esc_html__( 'Height', 'plugin-name' ),",
         "        'type' => Controls_Manager::TEXT,",
         "        'default' => '400',",
         "        'description' => 'Unit in px',",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .eael-img-accordion ' => 'height: {{VALUE}}px;',",
+        "            '{{WRAPPER}} .img-accordion ' => 'height: {{VALUE}}px;',",
         "        ],",
         "    ]",
         ");"
       ],
       "description": "Adds a custom CSS textarea control"
     },
-    "e_three": {
-      "scope": "php",
-      "prefix": "ethree",
+    "TypographyColorMargin": {
+      "prefix": "Etypothree",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
-        "        'name' => 'spinner_typ',",
+        "        'name' => '_typ',",
         "        'selector' => '{{WRAPPER}} .title span',",
         "    ]",
         ");",
         "",
         "$this->add_control(",
-        "    'spinner_color',",
+        "    '_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
         "        'type' => Controls_Manager::COLOR,",
@@ -596,7 +1055,7 @@
         "    ]",
         ");",
         "$this->add_responsive_control(",
-        "    'spinner_margin',",
+        "    '_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -609,23 +1068,22 @@
       ],
       "description": "Adds typography, color, and margin controls"
     },
-    "e_svg_icon_style": {
-      "scope": "php",
-      "prefix": "esvgicontogetherstyle",
+    "SVGIconStyle": {
+      "prefix": "Esvgiconstyle",
       "body": [
         "$this->add_control(",
-        "    'spinner_services_style_icon_color',",
+        "    '_icon_color',",
         "    [",
         "        'label' => esc_html__( 'SVG Color', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .service-icon svg path' => 'fill: {{VALUE}}',",
+        "            '{{WRAPPER}} .selector svg path' => 'fill: {{VALUE}}',",
         "        ],",
         "    ]",
         ");",
         "",
         "$this->add_responsive_control(",
-        "    'spinner_services_style_svg_size',",
+        "    '_svg_size',",
         "    [",
         "        'label' => esc_html__( 'SVG Size', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::SLIDER,",
@@ -641,57 +1099,58 @@
         "            'unit' => 'px',",
         "        ],",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .service-icon svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',",
-        "        ],",
-        "    ]",
-        ");",
-        "",
-        "$this->add_control(",
-        "    'spinner_services_style_icon_colorr',",
-        "    [",
-        "        'label' => esc_html__( 'Icon Color', 'plugin-name' ),",
-        "        'type' => \\Elementor\\Controls_Manager::COLOR,",
-        "        'selectors' => [",
-        "            '{{WRAPPER}} .service21-icon i' => 'color: {{VALUE}}',",
+        "            '{{WRAPPER}} .selector svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',",
         "        ],",
         "    ]",
         ");",
         "",
         "$this->add_responsive_control(",
-        "    'spinner_services_style_icon_size',",
+        "    '_svg_padding',",
         "    [",
-        "        'label' => esc_html__( 'Icon Size', 'plugin-name' ),",
-        "        'type' => \\Elementor\\Controls_Manager::SLIDER,",
-        "        'size_units' => [ 'px' ],",
-        "        'range' => [",
-        "            'px' => [",
-        "                'min' => 10,",
-        "                'max' => 100,",
-        "                'step' => 1,",
-        "            ],",
-        "        ],",
-        "        'default' => [",
-        "            'unit' => 'px',",
-        "        ],",
+        "        'label' => esc_html__( 'SVG Padding', 'plugin-name' ),",
+        "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
+        "        'size_units' => [ 'px', '%', 'em' ],",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .service-icon i' => 'font-size: {{SIZE}}{{UNIT}}',",
+        "            '{{WRAPPER}} .selector svg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',",
+        "        ],",
+        "    ]",
+        ");",
+        "",
+        "$this->add_responsive_control(",
+        "    '_svg_margin',",
+        "    [",
+        "        'label' => esc_html__( 'SVG Margin', 'plugin-name' ),",
+        "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
+        "        'size_units' => [ 'px', '%', 'em' ],",
+        "        'selectors' => [",
+        "            '{{WRAPPER}} .selector svg' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',",
+        "        ],",
+        "    ]",
+        ");",
+        "$this->add_responsive_control(",
+        "    '_svg_border_radius',",
+        "    [",
+        "        'label' => esc_html__( 'SVG Border Radius', 'plugin-name' ),",
+        "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
+        "        'size_units' => [ 'px', '%', 'em' ],",
+        "        'selectors' => [",
+        "            '{{WRAPPER}} .selector svg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',",
         "        ],",
         "    ]",
         ");"
+        
       ],
       "description": "Adds SVG/icon color and size controls"
     },
-    "e_attr": {
-      "scope": "html",
-      "prefix": "eattr",
+    "AttrOutput": {
+      "prefix": "Eattr",
       "body": [
         "<?php echo esc_attr__('service_image','plugin-name')?>"
       ],
       "description": "Outputs escaped attribute for translation"
     },
-    "e_hr": {
-      "scope": "php",
-      "prefix": "ehr",
+    "Divider": {
+      "prefix": "Edivider",
       "body": [
         "$this->add_control(",
         "    'hr',",
@@ -702,14 +1161,13 @@
       ],
       "description": "Adds a divider control"
     },
-    "e_heading": {
-      "scope": "php",
-      "prefix": "eheading",
+    "HeadingControl": {
+      "prefix": "Eheading",
       "body": [
         "$this->add_control(",
-        "    'more_options',",
+        "    '_heading',",
         "    [",
-        "        'label' => esc_html__( 'Additional Options', 'plugin-name' ),",
+        "        'label' => esc_html__( 'Heading', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::HEADING,",
         "        'separator' => 'before',",
         "    ]",
@@ -717,12 +1175,11 @@
       ],
       "description": "Adds a heading control for sections"
     },
-    "e_alignment": {
-      "scope": "php",
-      "prefix": "ealignment",
+    "AlignmentControl": {
+      "prefix": "Ealignment",
       "body": [
         "$this->add_responsive_control(",
-        "    'spinner_content_align',",
+        "    '_content_align',",
         "    [",
         "        'label' => esc_html__( 'Alignment', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::CHOOSE,",
@@ -754,12 +1211,11 @@
       ],
       "description": "Adds text alignment control"
     },
-    "e_border_radius": {
-      "scope": "php",
-      "prefix": "ebradius",
+    "BorderRadius": {
+      "prefix": "Eradius",
       "body": [
         "$this->add_responsive_control(",
-        "    'spinner_border_radius',",
+        "    '_border_radius',",
         "    [",
         "        'label' => esc_html__( 'Border Radius', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -772,31 +1228,29 @@
       ],
       "description": "Adds border radius control"
     },
-    "e_conditions": {
-      "scope": "php",
-      "prefix": "econditions",
+    "MultipleConditions": {
+      "prefix": "Econditions",
       "body": [
         "'condition' => [",
-        "    'corelaw_intro_style' => ['style_one','style_two'],",
+        "    '_style' => ['style_one','style_two'],",
         "]"
       ],
       "description": "Adds multiple conditions for visibility"
     },
-    "e_four": {
-      "scope": "php",
-      "prefix": "efour",
+    "TypographyColorMarginPadding": {
+      "prefix": "Etypofour",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
-        "        'name' => 'spinner_typ',",
+        "        'name' => '_typ',",
         "        'selector' => '{{WRAPPER}} .title',",
         "    ]",
         ");",
         "",
         "$this->add_control(",
-        "    'spinner_color',",
+        "    '_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
         "        'type' => Controls_Manager::COLOR,",
@@ -806,7 +1260,7 @@
         "    ]",
         ");",
         "$this->add_responsive_control(",
-        "    'spinner_margin',",
+        "    '_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -818,7 +1272,7 @@
         ");",
         "",
         "$this->add_responsive_control(",
-        "    'spinner_padding',",
+        "    '_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -831,20 +1285,18 @@
       ],
       "description": "Adds typography, color, margin, and padding controls"
     },
-    "e_settings": {
-      "scope": "html",
-      "prefix": "esettings",
+    "SettingsOutput": {
+      "prefix": "Esettings",
       "body": [
         "<?php echo esc_html($settings['']) ?>"
       ],
       "description": "Outputs escaped settings value"
     },
-    "e_switch": {
-      "scope": "php",
-      "prefix": "eswitch",
+    "SwitchControl": {
+      "prefix": "Eswitch",
       "body": [
         "$this->add_control(",
-        "    'spinner_show',",
+        "    '_show',",
         "    [",
         "        'label' => esc_html__( 'Show Navigation', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::SWITCHER,",
@@ -857,43 +1309,39 @@
       ],
       "description": "Adds a switcher control (show/hide)"
     },
-    "e_wp_kses": {
-      "scope": "html",
-      "prefix": "wpkses",
+    "WPKses": {
+      "prefix": "Ewpkses",
       "body": [
         "<?php echo wp_kses($settings['title'], wp_kses_allowed_html('post')) ?>"
       ],
       "description": "Outputs settings with wp_kses sanitization"
     },
-    "e_esc_html": {
-      "scope": "html",
-      "prefix": "eeschtml",
+    "EscHtml": {
+      "prefix": "Eeschtml",
       "body": [
         "<?php echo esc_html($settings['']) ?>"
       ],
       "description": "Outputs escaped HTML settings value"
     },
-    "e_icon_direct": {
-      "scope": "html",
-      "prefix": "eicondirect",
+    "IconShow": {
+      "prefix": "Eiconshow",
       "body": [
         "<?php \\Elementor\\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>"
       ],
       "description": "Renders an icon from settings"
     },
-    "e_image_three": {
-      "scope": "php",
-      "prefix": "eimagethree",
+    "ImageStyle": {
+      "prefix": "Eimagestyle",
       "body": [
         "$this->add_responsive_control(",
-        "    'imagestyle_height',",
+        "    'image_height',",
         "    [",
         "        'label' => esc_html__('Height', 'plugin-name'),",
         "        'type' => Controls_Manager::SLIDER,",
         "        'size_units' => ['px', '%'],",
         "        'description' => esc_html__('Choose height in px or %', 'plugin-name'),",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .ft-image' => 'height: {{SIZE}}{{UNIT}};',",
+        "            '{{WRAPPER}} .selector img' => 'height: {{SIZE}}{{UNIT}};',",
         "        ],",
         "        'default' => [",
         "            'unit' => 'px',",
@@ -902,14 +1350,14 @@
         ");",
         "",
         "$this->add_responsive_control(",
-        "    'imagestyle_width',",
+        "    'image_width',",
         "    [",
         "        'label' => esc_html__('Width', 'plugin-name'),",
         "        'type' => Controls_Manager::SLIDER,",
         "        'size_units' => ['px', '%'],",
         "        'description' => esc_html__('Choose width in px or %', 'plugin-name'),",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .ft-image' => 'width: {{SIZE}}{{UNIT}};',",
+        "            '{{WRAPPER}} .selector img' => 'width: {{SIZE}}{{UNIT}};',",
         "        ],",
         "        'default' => [",
         "            'unit' => 'px',",
@@ -918,22 +1366,21 @@
         ");",
         "",
         "$this->add_responsive_control(",
-        "    'imagestyle_border_radius',",
+        "    'image_border_radius',",
         "    [",
         "        'label' => esc_html__('Border Radius', 'plugin-name'),",
         "        'type' => Controls_Manager::DIMENSIONS,",
         "        'size_units' => ['px', '%'],",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .ft-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',",
+        "            '{{WRAPPER}} .selector img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',",
         "        ],",
         "    ]",
         ");"
       ],
       "description": "Adds image height, width, and border radius controls"
     },
-    "e_nav": {
-      "scope": "php",
-      "prefix": "enav",
+    "NavigationStyle": {
+      "prefix": "Eswipernav",
       "body": [
         "$this->add_control(",
         "    'navigation_color',",
@@ -941,7 +1388,7 @@
         "        'label' => esc_html__('Color', 'plugin-name'),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .arrow-style-one .swiper-prev-arrow i, .arrow-style-one .swiper-next-arrow i' => 'color: {{VALUE}};border:1px solid {{VALUE}}',",
+        "            '{{WRAPPER}} .swiper-prev i, .swiper-next i' => 'color: {{VALUE}}; border:1px solid {{VALUE}}',",
         "        ],",
         "    ]",
         ");",
@@ -952,7 +1399,7 @@
         "        'label' => esc_html__('Hover Icon Color', 'plugin-name'),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .arrow-style-one .swiper-prev-arrow i:hover, .arrow-style-one .swiper-next-arrow i:hover' => 'color: {{VALUE}}',",
+        "            '{{WRAPPER}} .swiper-prev i:hover, .swiper-next i:hover' => 'color: {{VALUE}}',",
         "        ],",
         "    ]",
         ");",
@@ -963,28 +1410,27 @@
         "        'label' => esc_html__('Hover Background Color', 'plugin-name'),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
         "        'selectors' => [",
-        "            '{{WRAPPER}} .arrow-style-one .swiper-prev-arrow i:hover, .arrow-style-one .swiper-next-arrow i:hover' => 'background: {{VALUE}}; border:1px solid {{VALUE}}',",
+        "            '{{WRAPPER}} .swiper-prev i:hover, .swiper-next i:hover' => 'background: {{VALUE}}; border:1px solid {{VALUE}}',",
         "        ],",
         "    ]",
         ");"
       ],
       "description": "Adds navigation color and hover styles"
     },
-    "e_two": {
-      "scope": "php",
-      "prefix": "etwo",
+    "TypographyColor": {
+      "prefix": "Etypotwo",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
-        "        'name' => 'spinner_typ',",
+        "        'name' => '_typ',",
         "        'selector' => '{{WRAPPER}} .title',",
         "    ]",
         ");",
         "",
         "$this->add_control(",
-        "    'spinner_color',",
+        "    '_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
         "        'type' => Controls_Manager::COLOR,",
@@ -996,9 +1442,8 @@
       ],
       "description": "Adds typography and color controls"
     },
-    "e_subtitle": {
-      "scope": "php",
-      "prefix": "essubtitle",
+    "SubtitleStyle": {
+      "prefix": "Esubtitlestyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1045,9 +1490,8 @@
       ],
       "description": "Styles subtitle with typography, color, and spacing"
     },
-    "e_title": {
-      "scope": "php",
-      "prefix": "estitle",
+    "TitleStyle": {
+      "prefix": "Etitlestyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1094,9 +1538,8 @@
       ],
       "description": "Styles title with typography, color, and spacing"
     },
-    "e_description": {
-      "scope": "php",
-      "prefix": "esdescription",
+    "DescriptionStyle": {
+      "prefix": "Edescriptionstyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1143,9 +1586,8 @@
       ],
       "description": "Styles description with typography, color, and spacing"
     },
-    "e_subheading": {
-      "scope": "php",
-      "prefix": "essubheading",
+    "SubheadingStyle": {
+      "prefix": "Esubheadingstyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1192,9 +1634,8 @@
       ],
       "description": "Styles subheading with typography, color, and spacing"
     },
-    "e_heading": {
-      "scope": "php",
-      "prefix": "esheading",
+    "HeadingStyle": {
+      "prefix": "Eheadingstyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1241,9 +1682,8 @@
       ],
       "description": "Styles heading with typography, color, and spacing"
     },
-    "e_headingtitle": {
-      "scope": "php",
-      "prefix": "esheadingtitle",
+    "HeadingTitleStyle": {
+      "prefix": "Eheadingtitlestyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1290,9 +1730,8 @@
       ],
       "description": "Styles heading title with typography, color, and spacing"
     },
-    "e_name": {
-      "scope": "php",
-      "prefix": "esname",
+    "NameStyle": {
+      "prefix": "Enamestyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1339,9 +1778,8 @@
       ],
       "description": "Styles name with typography, color, and spacing"
     },
-    "e_place": {
-      "scope": "php",
-      "prefix": "esplace",
+    "PlaceStyle": {
+      "prefix": "Eplacestyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1388,9 +1826,8 @@
       ],
       "description": "Styles place with typography, color, and spacing"
     },
-    "e_designation": {
-      "scope": "php",
-      "prefix": "esdesignation",
+    "DesignationStyle": {
+      "prefix": "Edesignationstyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1437,9 +1874,8 @@
       ],
       "description": "Styles designation with typography, color, and spacing"
     },
-    "e_date": {
-      "scope": "php",
-      "prefix": "esdate",
+    "DateStyle": {
+      "prefix": "Edatestyle",
       "body": [
         "$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
@@ -1486,9 +1922,8 @@
       ],
       "description": "Styles date with typography, color, and spacing"
     },
-    "e_card": {
-      "scope": "php",
-      "prefix": "escard",
+    "CardStyle": {
+      "prefix": "Ecardstyle",
       "body": [
         "$this->add_control(",
         "    'card_color',",
@@ -1511,13 +1946,52 @@
         "            '{{WRAPPER}} .card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',",
         "        ],",
         "    ]",
+        ");",
+        "",
+        "$this->add_responsive_control(",
+        "    'card_margin',",
+        "    [",
+        "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
+        "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
+        "        'size_units' => [ 'px', '%', 'em' ],",
+        "        'selectors' => [",
+        "            '{{WRAPPER}} .card' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',",
+        "        ],",
+        "    ]",
+        ");",
+        "",
+        "$this->add_responsive_control(",
+        "    'card_border_radius',",
+        "    [",
+        "        'label' => esc_html__( 'Border Radius', 'plugin-name' ),",
+        "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
+        "        'size_units' => [ 'px', '%', 'em' ],",
+        "        'selectors' => [",
+        "            '{{WRAPPER}} .card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',",
+        "        ],",
+        "    ]",
+        ");",
+        "",
+        "$this->add_group_control(",
+        "    Group_Control_Box_Shadow::get_type(),",
+        "    [",
+        "        'name' => 'card_box_shadow',",
+        "        'selector' => '{{WRAPPER}} .card',",
+        "    ]",
+        ");",
+        "",
+        "$this->add_group_control(",
+        "    Group_Control_Border::get_type(),",
+        "    [",
+        "        'name' => 'card_border',",
+        "        'selector' => '{{WRAPPER}} .card',",
+        "    ]",
         ");"
       ],
-      "description": "Styles card with background and padding"
+      "description": "Styles card with background, padding, margin, border radius, box shadow, and border"
     },
-    "e_show": {
-      "scope": "html",
-      "prefix": "eshow",
+    "ConditionalShow": {
+      "prefix": "Eshow",
       "body": [
         "<?php if( !empty( $settings[''] ) ) : ?>",
         "    <?php echo esc_html($settings['']) ?>",
@@ -1525,16 +1999,15 @@
       ],
       "description": "Conditionally displays settings value"
     },
-    "e_border_group": {
-      "scope": "php",
-      "prefix": "ebordergroup",
+    "BorderGroup": {
+      "prefix": "Ebordergroup",
       "body": [
         "$this->add_group_control(",
         "    \\Elementor\\Group_Control_Border::get_type(),",
         "    [",
-        "        'name' => 'banner_button_border',",
+        "        'name' => '_border',",
         "        'label' => esc_html__('Border', 'plugin-name'),",
-        "        'selector' => '{{WRAPPER}} .btn--primary-outline',",
+        "        'selector' => '{{WRAPPER}} .selector',",
         "    ]",
         ");"
       ],
@@ -1542,27 +2015,23 @@
     }
   },
   "WordPress": {
-    "w_title": {
-      "scope": "html",
-      "prefix": "wptitle",
+    "Title": {
+      "prefix": "Wtitle",
       "body": ["<?php the_title(); ?>"],
       "description": "Outputs post/page title"
     },
-    "w_content": {
-      "scope": "html",
-      "prefix": "wpcontent",
+    "Content": {
+      "prefix": "Wcontent",
       "body": ["<?php the_content(); ?>"],
       "description": "Outputs post/page content"
     },
-    "w_thumbnail_url": {
-      "scope": "html",
-      "prefix": "wpthumbnailurl",
+    "ThumbnailURL": {
+      "prefix": "Wthumbnailurl",
       "body": ["<?php the_post_thumbnail_url(); ?>"],
       "description": "Outputs featured image URL"
     },
-    "w_post_loop": {
-      "scope": "html",
-      "prefix": "wploop",
+    "PostLoop": {
+      "prefix": "Wloop",
       "body": [
         "<?php if ( have_posts() ) : ?>",
         "    <?php while ( have_posts() ) : the_post(); ?>",
@@ -1572,9 +2041,8 @@
       ],
       "description": "Standard WordPress loop"
     },
-    "w_post_loop_simple": {
-      "scope": "html",
-      "prefix": "wploopsimple",
+    "PostLoopSimple": {
+      "prefix": "Wloopsimple",
       "body": [
         "<?php",
         "if ( have_posts() ) {",
@@ -1587,24 +2055,21 @@
       ],
       "description": "Simplified WordPress loop"
     },
-    "w_post_if": {
-      "scope": "html",
-      "prefix": "wpif",
+    "PostIf": {
+      "prefix": "Wif",
       "body": [
         "<?php if ( have_posts() ) : ?>",
         "<?php endif; ?>"
       ],
       "description": "Basic WordPress conditional check"
     },
-    "w_theme_uri": {
-      "scope": "html",
-      "prefix": "wpthemeuri",
+    "ThemeURI": {
+      "prefix": "Wthemeuri",
       "body": ["<?php echo get_template_directory_uri(); ?>/"],
       "description": "Outputs theme directory URI"
     },
-    "w_acf_if": {
-      "scope": "html",
-      "prefix": "acfif",
+    "ACFIf": {
+      "prefix": "Wacfif",
       "body": [
         "<?php if( get_field('field_name') ): ?>",
         "    <p>My field value: <?php the_field('field_name'); ?></p>",
@@ -1612,9 +2077,8 @@
       ],
       "description": "Conditional ACF field output"
     },
-    "w_acf_foreach": {
-      "scope": "html",
-      "prefix": "acfforeach",
+    "ACFForEach": {
+      "prefix": "Wacfforeach",
       "body": [
         "<?php",
         "    $ff = get_field('contact_us_content','option');",
@@ -1627,9 +2091,8 @@
       ],
       "description": "Loops through ACF repeater field"
     },
-    "w_plugin_header": {
-      "scope": "php",
-      "prefix": "wppluginheader",
+    "PluginHeader": {
+      "prefix": "Wpluginheader",
       "body": [
         "/**",
         " * Plugin Name:       My Basics Plugin",
@@ -1649,9 +2112,8 @@
       ],
       "description": "Plugin header comment"
     },
-    "w_plugin_hooks": {
-      "scope": "php",
-      "prefix": "wppluginhooks",
+    "PluginHooks": {
+      "prefix": "Wpluginhooks",
       "body": [
         "function wordcount_activation_hook() {",
         "}",
@@ -1665,45 +2127,38 @@
     }
   },
   "JavaScript": {
-    "j_style": {
-      "scope": "javascript",
-      "prefix": "jstyle",
+    "Style": {
+      "prefix": "Jstyle",
       "body": ["document.getElementById('demo').style.color = 'red';"],
       "description": "Changes element style (color)"
     },
-    "j_inner_html": {
-      "scope": "javascript",
-      "prefix": "jinnerhtml",
+    "InnerHTML": {
+      "prefix": "Jinnerhtml",
       "body": ["document.getElementById('demo').innerHTML = 'Hello JavaScript!';"],
       "description": "Sets element innerHTML"
     },
-    "j_class_html": {
-      "scope": "javascript",
-      "prefix": "jclasshtml",
+    "ClassHTML": {
+      "prefix": "Jclasshtml",
       "body": ["document.getElementsByClassName('demo')[0].innerHTML = 'Hello JavaScript!';"],
       "description": "Sets innerHTML for first element by class"
     },
-    "j_src": {
-      "scope": "javascript",
-      "prefix": "jsrc",
+    "Src": {
+      "prefix": "Jsrc",
       "body": ["document.getElementById('a').src = 'on.gif';"],
       "description": "Changes image source"
     },
-    "j_write": {
-      "scope": "javascript",
-      "prefix": "jwrite",
+    "Write": {
+      "prefix": "Jwrite",
       "body": ["document.write();"],
       "description": "Writes content to document"
     },
-    "j_query_selector": {
-      "scope": "javascript",
-      "prefix": "jqueryselector",
+    "QuerySelector": {
+      "prefix": "Jqueryselector",
       "body": ["document.querySelector('.example').style.backgroundColor = 'red';"],
       "description": "Sets style via querySelector"
     },
-    "j_event_listener": {
-      "scope": "javascript",
-      "prefix": "jeventlistener",
+    "EventListener": {
+      "prefix": "Jeventlistener",
       "body": [
         "document.getElementById('myBtn').addEventListener('click', work);",
         "",
@@ -1713,15 +2168,13 @@
       ],
       "description": "Adds a click event listener"
     },
-    "j_console": {
-      "scope": "javascript",
-      "prefix": "jlog",
+    "ConsoleLog": {
+      "prefix": "Jlog",
       "body": ["console.log($1);"],
       "description": "Logs to console"
     },
-   "j_foreach": {
-      "scope": "javascript",
-      "prefix": "jforeach",
+    "ForEach": {
+      "prefix": "Jforeach",
       "body": [
         "array.forEach(function(element) {",
         "    console.log(element);",
@@ -1731,9 +2184,8 @@
     }
   },
   "PHP": {
-    "p_function": {
-      "scope": "php",
-      "prefix": "pfunction",
+    "Function": {
+      "prefix": "Pfunction",
       "body": [
         "function ${1:function_name}() {",
         "    $2",
@@ -1741,9 +2193,8 @@
       ],
       "description": "Creates a PHP function"
     },
-    "p_if": {
-      "scope": "php",
-      "prefix": "pif",
+    "If": {
+      "prefix": "Pif",
       "body": [
         "if ($1) {",
         "    $2",
@@ -1751,9 +2202,8 @@
       ],
       "description": "PHP if statement"
     },
-    "p_foreach": {
-      "scope": "php",
-      "prefix": "pforeach",
+    "ForEach": {
+      "prefix": "Pforeach",
       "body": [
         "foreach ($${1:array} as $${2:item}) {",
         "    $3",
@@ -1761,27 +2211,23 @@
       ],
       "description": "PHP foreach loop"
     },
-    "p_echo": {
-      "scope": "php",
-      "prefix": "pecho",
+    "Echo": {
+      "prefix": "Pecho",
       "body": ["echo $1;"],
       "description": "PHP echo statement"
     },
-    "p_var": {
-      "scope": "php",
-      "prefix": "pvar",
+    "Variable": {
+      "prefix": "Pvar",
       "body": ["$${1:variable} = $2;"],
       "description": "Declares a PHP variable"
     },
-    "p_array": {
-      "scope": "php",
-      "prefix": "parray",
+    "Array": {
+      "prefix": "Parray",
       "body": ["$${1:array} = [$2];"],
       "description": "Creates a PHP array"
     },
-    "p_class": {
-      "scope": "php",
-      "prefix": "pclass",
+    "Class": {
+      "prefix": "Pclass",
       "body": [
         "class ${1:ClassName} {",
         "    public function __construct() {",
@@ -1792,16 +2238,39 @@
       "description": "Creates a PHP class with constructor"
     }
   },
+  "Utility": {
+    "EscapedTranslation": {
+      "prefix": "Uesc",
+      "body": [
+        "esc_html__( '${1:text}', '${2:text-domain}' )"
+      ],
+      "description": "Escaped translation"
+    },
+    "SanitizeHTML": {
+      "prefix": "Ukses",
+      "body": [
+        "wp_kses( \$${1:content}, wp_kses_allowed_html( 'post' ) )"
+      ],
+      "description": "Sanitize HTML output"
+    },
+    "IssetCheck": {
+      "prefix": "Uisset",
+      "body": [
+        "<?php if ( isset( \$${1:variable} ) : ?>",
+        "\t${2}",
+        "<?php endif; ?>"
+      ],
+      "description": "Check if variable exists"
+    }
+  },
   "Miscellaneous": {
-    "m_array": {
-      "scope": "javascript",
-      "prefix": "marray",
+    "Array": {
+      "prefix": "Marray",
       "body": ["let ${1:array} = [$2];"],
       "description": "Creates a JavaScript array"
     },
-    "m_string": {
-      "scope": "javascript",
-      "prefix": "mstring",
+    "String": {
+      "prefix": "Mstring",
       "body": ["let ${1:string} = '$2';"],
       "description": "Declares a JavaScript string"
     }

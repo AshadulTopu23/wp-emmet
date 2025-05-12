@@ -216,7 +216,7 @@
       "prefix": "ecolor",
       "body": [
         "$this->add_control(",
-        "    '_color',",
+        "    'spinner_color',",
         "    [",
         "        'label' => esc_html__( 'Color', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
@@ -373,7 +373,7 @@
       "prefix": "emargin",
       "body": [
         "$this->add_responsive_control(",
-        "    '_margin',",
+        "    'spinner_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -391,7 +391,7 @@
       "prefix": "epadding",
       "body": [
         "$this->add_responsive_control(",
-        "    '_padding',",
+        "    'spinner_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -448,7 +448,7 @@
       "prefix": "eicon",
       "body": [
         "$this->add_control(",
-        "    '_icon',",
+        "    'spinner_icon',",
         "    [",
         "        'label' => esc_html__( 'Icon', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::ICONS,",
@@ -482,7 +482,7 @@
         "$this->add_group_control(",
         "    \\Elementor\\Group_Control_Typography::get_type(),",
         "    [",
-        "        'name' => '_typography',",
+        "        'name' => 'spinner_typography',",
         "        'selector' => '{{WRAPPER}} .title',",
         "    ]",
         ");"
@@ -494,7 +494,7 @@
       "prefix": "eborder",
       "body": [
         "$this->add_control(",
-        "    '_color',",
+        "    'spinner_color',",
         "    [",
         "        'label' => esc_html__( 'Card Border Color', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
@@ -580,13 +580,13 @@
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
-        "        'name' => '_typ',",
+        "        'name' => 'spinner_typ',",
         "        'selector' => '{{WRAPPER}} .title span',",
         "    ]",
         ");",
         "",
         "$this->add_control(",
-        "    '_color',",
+        "    'spinner_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
         "        'type' => Controls_Manager::COLOR,",
@@ -596,7 +596,7 @@
         "    ]",
         ");",
         "$this->add_responsive_control(",
-        "    '_margin',",
+        "    'spinner_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -614,7 +614,7 @@
       "prefix": "esvgicontogetherstyle",
       "body": [
         "$this->add_control(",
-        "    '_services_style_icon_color',",
+        "    'spinner_services_style_icon_color',",
         "    [",
         "        'label' => esc_html__( 'SVG Color', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
@@ -625,7 +625,7 @@
         ");",
         "",
         "$this->add_responsive_control(",
-        "    '_services_style_svg_size',",
+        "    'spinner_services_style_svg_size',",
         "    [",
         "        'label' => esc_html__( 'SVG Size', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::SLIDER,",
@@ -647,7 +647,7 @@
         ");",
         "",
         "$this->add_control(",
-        "    '_services_style_icon_colorr',",
+        "    'spinner_services_style_icon_colorr',",
         "    [",
         "        'label' => esc_html__( 'Icon Color', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::COLOR,",
@@ -658,7 +658,7 @@
         ");",
         "",
         "$this->add_responsive_control(",
-        "    '_services_style_icon_size',",
+        "    'spinner_services_style_icon_size',",
         "    [",
         "        'label' => esc_html__( 'Icon Size', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::SLIDER,",
@@ -722,7 +722,7 @@
       "prefix": "ealignment",
       "body": [
         "$this->add_responsive_control(",
-        "    '_content_align',",
+        "    'spinner_content_align',",
         "    [",
         "        'label' => esc_html__( 'Alignment', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::CHOOSE,",
@@ -759,7 +759,7 @@
       "prefix": "ebradius",
       "body": [
         "$this->add_responsive_control(",
-        "    '_border_radius',",
+        "    'spinner_border_radius',",
         "    [",
         "        'label' => esc_html__( 'Border Radius', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -790,13 +790,13 @@
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
-        "        'name' => '_typ',",
+        "        'name' => 'spinner_typ',",
         "        'selector' => '{{WRAPPER}} .title',",
         "    ]",
         ");",
         "",
         "$this->add_control(",
-        "    '_color',",
+        "    'spinner_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
         "        'type' => Controls_Manager::COLOR,",
@@ -806,7 +806,7 @@
         "    ]",
         ");",
         "$this->add_responsive_control(",
-        "    '_margin',",
+        "    'spinner_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -818,7 +818,7 @@
         ");",
         "",
         "$this->add_responsive_control(",
-        "    '_padding',",
+        "    'spinner_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::DIMENSIONS,",
@@ -844,7 +844,7 @@
       "prefix": "eswitch",
       "body": [
         "$this->add_control(",
-        "    '_show',",
+        "    'spinner_show',",
         "    [",
         "        'label' => esc_html__( 'Show Navigation', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::SWITCHER,",
@@ -886,7 +886,7 @@
       "prefix": "eimagethree",
       "body": [
         "$this->add_responsive_control(",
-        "    'imagestyle_height',",
+        "    'images_height',",
         "    [",
         "        'label' => esc_html__('Height', 'plugin-name'),",
         "        'type' => Controls_Manager::SLIDER,",
@@ -902,7 +902,7 @@
         ");",
         "",
         "$this->add_responsive_control(",
-        "    'imagestyle_width',",
+        "    'images_width',",
         "    [",
         "        'label' => esc_html__('Width', 'plugin-name'),",
         "        'type' => Controls_Manager::SLIDER,",
@@ -918,7 +918,7 @@
         ");",
         "",
         "$this->add_responsive_control(",
-        "    'imagestyle_border_radius',",
+        "    'images_border_radius',",
         "    [",
         "        'label' => esc_html__('Border Radius', 'plugin-name'),",
         "        'type' => Controls_Manager::DIMENSIONS,",
@@ -978,13 +978,13 @@
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
-        "        'name' => '_typ',",
+        "        'name' => 'spinner_typ',",
         "        'selector' => '{{WRAPPER}} .title',",
         "    ]",
         ");",
         "",
         "$this->add_control(",
-        "    '_color',",
+        "    'spinner_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
         "        'type' => Controls_Manager::COLOR,",
@@ -1804,6 +1804,478 @@
       "prefix": "mstring",
       "body": ["let ${1:string} = '$2';"],
       "description": "Declares a JavaScript string"
+    }
+  },
+  "// Elementor Widget Boilerplate": {
+    "prefix": "Ewidget",
+    "body": [
+      "<?php",
+      "/**",
+      " * ${1:Widget Name}",
+      " *",
+      " * @package ${2:Package}",
+      " */",
+      "",
+      "namespace ${3:Namespace};",
+      "",
+      "use Elementor\\Widget_Base;",
+      "use Elementor\\Controls_Manager;",
+      "use Elementor\\Group_Control_Typography;",
+      "use Elementor\\Group_Control_Background;",
+      "use Elementor\\Group_Control_Border;",
+      "use Elementor\\Group_Control_Box_Shadow;",
+      "",
+      "class ${4:Widget_Class_Name} extends Widget_Base {",
+      "",
+      "\tpublic function get_name() {",
+      "\t\treturn '${5:widget-name}';",
+      "\t}",
+      "",
+      "\tpublic function get_title() {",
+      "\t\treturn __( '${6:Widget Title}', '${7:text-domain}' );",
+      "\t}",
+      "",
+      "\tpublic function get_icon() {",
+      "\t\treturn '${8:eicon-icon-name}';",
+      "\t}",
+      "",
+      "\tpublic function get_categories() {",
+      "\t\treturn [ '${9:category-name}' ];",
+      "\t}",
+      "",
+      "\tprotected function _register_controls() {",
+      "\t\t// Content Tab",
+      "\t\t$this->start_controls_section(",
+      "\t\t\t'content_section',",
+      "\t\t\t[",
+      "\t\t\t\t'label' => esc_html__( 'Content', '${7:text-domain}' ),",
+      "\t\t\t\t'tab' => Controls_Manager::TAB_CONTENT,",
+      "\t\t\t]",
+      "\t\t);",
+      "\t\t",
+      "\t\t// Add controls here",
+      "\t\t",
+      "\t\t$this->end_controls_section();",
+      "",
+      "\t\t// Style Tab",
+      "\t\t$this->start_controls_section(",
+      "\t\t\t'style_section',",
+      "\t\t\t[",
+      "\t\t\t\t'label' => esc_html__( 'Style', '${7:text-domain}' ),",
+      "\t\t\t\t'tab' => Controls_Manager::TAB_STYLE,",
+      "\t\t\t]",
+      "\t\t);",
+      "\t\t",
+      "\t\t// Add style controls here",
+      "\t\t",
+      "\t\t$this->end_controls_section();",
+      "\t}",
+      "",
+      "\tprotected function render() {",
+      "\t\t\$settings = \$this->get_settings_for_display();",
+      "\t\t// Output the widget HTML",
+      "\t}",
+      "",
+      "\tprotected function _content_template() {",
+      "\t\t// JS template for editor preview",
+      "\t}",
+      "}"
+    ],
+    "description": "Complete Elementor widget boilerplate"
+  },
+  "// Elementor Controls": {
+    "Etext": {
+      "prefix": "Etext",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::TEXT,",
+        "\t\t'default' => esc_html__( '${4:Default text}', '${3:text-domain}' ),",
+        "\t\t'label_block' => ${5:true},",
+        "\t]",
+        ");"
+      ],
+      "description": "Text control"
+    },
+    "Etextarea": {
+      "prefix": "Etextarea",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::TEXTAREA,",
+        "\t\t'rows' => ${4:10},",
+        "\t\t'default' => esc_html__( '${5:Default text}', '${3:text-domain}' ),",
+        "\t]",
+        ");"
+      ],
+      "description": "Textarea control"
+    },
+    "Ewysiwyg": {
+      "prefix": "Ewysiwyg",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::WYSIWYG,",
+        "\t\t'default' => esc_html__( '${4:Default content}', '${3:text-domain}' ),",
+        "\t]",
+        ");"
+      ],
+      "description": "WYSIWYG editor control"
+    },
+    "Eselect": {
+      "prefix": "Eselect",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::SELECT,",
+        "\t\t'default' => '${4:default_value}',",
+        "\t\t'options' => [",
+        "\t\t\t'${5:value1}' => esc_html__( '${6:Label 1}', '${3:text-domain}' ),",
+        "\t\t\t'${7:value2}' => esc_html__( '${8:Label 2}', '${3:text-domain}' ),",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Select dropdown control"
+    },
+    "Ecolor": {
+      "prefix": "Ecolor",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::COLOR,",
+        "\t\t'selectors' => [",
+        "\t\t\t'{{WRAPPER}} ${4:.selector}' => 'color: {{VALUE}}',",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Color picker control"
+    },
+    "Eimage": {
+      "prefix": "Eimage",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::MEDIA,",
+        "\t\t'default' => [",
+        "\t\t\t'url' => \\Elementor\\Utils::get_placeholder_image_src(),",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Image upload control"
+    },
+    "Eicon": {
+      "prefix": "Eicon",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::ICONS,",
+        "\t\t'default' => [",
+        "\t\t\t'value' => '${4:fas fa-star}',",
+        "\t\t\t'library' => '${5:fa-solid}',",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Icon selector control"
+    },
+    "Eslider": {
+      "prefix": "Eslider",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::SLIDER,",
+        "\t\t'size_units' => [ 'px', '%' ],",
+        "\t\t'range' => [",
+        "\t\t\t'px' => [",
+        "\t\t\t\t'min' => ${4:0},",
+        "\t\t\t\t'max' => ${5:1000},",
+        "\t\t\t\t'step' => ${6:1},",
+        "\t\t\t],",
+        "\t\t],",
+        "\t\t'selectors' => [",
+        "\t\t\t'{{WRAPPER}} ${7:.selector}' => 'font-size: {{SIZE}}{{UNIT}};',",
+        "\t\t],",
+        "\t]",
+        ");"
+      ],
+      "description": "Slider control"
+    },
+    "Eswitch": {
+      "prefix": "Eswitch",
+      "body": [
+        "$this->add_control(",
+        "\t'${1:control_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::SWITCHER,",
+        "\t\t'label_on' => esc_html__( '${4:Show}', '${3:text-domain}' ),",
+        "\t\t'label_off' => esc_html__( '${5:Hide}', '${3:text-domain}' ),",
+        "\t\t'return_value' => '${6:yes}',",
+        "\t\t'default' => '${7:yes}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Switch toggle control"
+    },
+    "Erepeater": {
+      "prefix": "Erepeater",
+      "body": [
+        "$repeater = new \\Elementor\\Repeater();",
+        "",
+        "$repeater->add_control(",
+        "\t'${1:item_title}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Title}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::TEXT,",
+        "\t\t'default' => esc_html__( '${4:Default Title}', '${3:text-domain}' ),",
+        "\t\t'label_block' => true,",
+        "\t]",
+        ");",
+        "",
+        "$this->add_control(",
+        "\t'${5:repeater_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${6:Repeater Label}', '${3:text-domain}' ),",
+        "\t\t'type' => Controls_Manager::REPEATER,",
+        "\t\t'fields' => $repeater->get_controls(),",
+        "\t\t'default' => [",
+        "\t\t\t[",
+        "\t\t\t\t'${1:item_title}' => esc_html__( '${7:Item 1}', '${3:text-domain}' ),",
+        "\t\t\t],",
+        "\t\t\t[",
+        "\t\t\t\t'${1:item_title}' => esc_html__( '${8:Item 2}', '${3:text-domain}' ),",
+        "\t\t\t],",
+        "\t\t],",
+        "\t\t'title_field' => '{{{ ${1:item_title} }}}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Repeater control"
+    }
+  },
+  "// Elementor Group Controls": {
+    "Etypo": {
+      "prefix": "Etypo",
+      "body": [
+        "$this->add_group_control(",
+        "\tGroup_Control_Typography::get_type(),",
+        "\t[",
+        "\t\t'name' => '${1:typography_name}',",
+        "\t\t'selector' => '{{WRAPPER}} ${2:.selector}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Typography group control"
+    },
+    "Ebackground": {
+      "prefix": "Ebackground",
+      "body": [
+        "$this->add_group_control(",
+        "\tGroup_Control_Background::get_type(),",
+        "\t[",
+        "\t\t'name' => '${1:background_name}',",
+        "\t\t'label' => esc_html__( '${2:Background}', '${3:text-domain}' ),",
+        "\t\t'types' => [ 'classic', 'gradient' ],",
+        "\t\t'selector' => '{{WRAPPER}} ${4:.selector}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Background group control"
+    },
+    "Eborder": {
+      "prefix": "Eborder",
+      "body": [
+        "$this->add_group_control(",
+        "\tGroup_Control_Border::get_type(),",
+        "\t[",
+        "\t\t'name' => '${1:border_name}',",
+        "\t\t'selector' => '{{WRAPPER}} ${2:.selector}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Border group control"
+    },
+    "Eboxshadow": {
+      "prefix": "Eboxshadow",
+      "body": [
+        "$this->add_group_control(",
+        "\tGroup_Control_Box_Shadow::get_type(),",
+        "\t[",
+        "\t\t'name' => '${1:shadow_name}',",
+        "\t\t'selector' => '{{WRAPPER}} ${2:.selector}',",
+        "\t]",
+        ");"
+      ],
+      "description": "Box shadow group control"
+    }
+  },
+  "// Elementor Sections & Tabs": {
+    "Esection": {
+      "prefix": "Esection",
+      "body": [
+        "$this->start_controls_section(",
+        "\t'${1:section_name}',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${2:Section Label}', '${3:text-domain}' ),",
+        "\t\t'tab' => Controls_Manager::TAB_${4:CONTENT},",
+        "\t]",
+        ");",
+        "",
+        "// Add controls here",
+        "",
+        "$this->end_controls_section();"
+      ],
+      "description": "Control section"
+    },
+    "Etabs": {
+      "prefix": "Etabs",
+      "body": [
+        "$this->start_controls_tabs(",
+        "\t'${1:tabs_name}'",
+        ");",
+        "",
+        "$this->start_controls_tab(",
+        "\t'${2:tab_name}_normal',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${3:Normal}', '${4:text-domain}' ),",
+        "\t]",
+        ");",
+        "",
+        "// Normal tab controls",
+        "",
+        "$this->end_controls_tab();",
+        "",
+        "$this->start_controls_tab(",
+        "\t'${2:tab_name}_hover',",
+        "\t[",
+        "\t\t'label' => esc_html__( '${5:Hover}', '${4:text-domain}' ),",
+        "\t]",
+        ");",
+        "",
+        "// Hover tab controls",
+        "",
+        "$this->end_controls_tab();",
+        "",
+        "$this->end_controls_tabs();"
+      ],
+      "description": "Control tabs"
+    }
+  },
+  "// Elementor Render Methods": {
+    "Erender": {
+      "prefix": "Erender",
+      "body": [
+        "protected function render() {",
+        "\t$settings = $this->get_settings_for_display();",
+        "\t?>",
+        "\t<div class=\"${1:widget-class}\">",
+        "\t\t<?php if ( ! empty( \$settings['title'] ) : ?>",
+        "\t\t\t<h2><?php echo esc_html( \$settings['title'] ); ?></h2>",
+        "\t\t<?php endif; ?>",
+        "\t</div>",
+        "\t<?php",
+        "}"
+      ],
+      "description": "Render method"
+    },
+    "Etemplate": {
+      "prefix": "Etemplate",
+      "body": [
+        "protected function _content_template() {",
+        "\t?>",
+        "\t<#",
+        "\t\tif ( settings.title ) { #>",
+        "\t\t\t<h2>{{{ settings.title }}}</h2>",
+        "\t\t<# } #>",
+        "\t<?php",
+        "}"
+      ],
+      "description": "Content template method"
+    },
+    "Erendericon": {
+      "prefix": "Erendericon",
+      "body": [
+        "<?php \\Elementor\\Icons_Manager::render_icon( \$settings['${1:icon}'], [ 'aria-hidden' => 'true' ] ); ?>"
+      ],
+      "description": "Render icon in template"
+    }
+  },
+  "// WordPress Helpers": {
+    "Wptitle": {
+      "prefix": "Wptitle",
+      "body": [
+        "<?php the_title(); ?>"
+      ],
+      "description": "Display post title"
+    },
+    "Wpcontent": {
+      "prefix": "Wpcontent",
+      "body": [
+        "<?php the_content(); ?>"
+      ],
+      "description": "Display post content"
+    },
+    "Wpthumbnail": {
+      "prefix": "Wpthumbnail",
+      "body": [
+        "<?php the_post_thumbnail('${1:full}'); ?>"
+      ],
+      "description": "Display post thumbnail"
+    },
+    "Wploop": {
+      "prefix": "Wploop",
+      "body": [
+        "<?php if ( have_posts() ) : ?>",
+        "\t<?php while ( have_posts() ) : the_post(); ?>",
+        "\t\t<!-- Content -->",
+        "\t<?php endwhile; ?>",
+        "<?php endif; ?>"
+      ],
+      "description": "Standard WordPress loop"
+    }
+  },
+  "// Utility Snippets": {
+    "Uesc": {
+      "prefix": "Uesc",
+      "body": [
+        "esc_html__( '${1:text}', '${2:text-domain}' )"
+      ],
+      "description": "Escaped translation"
+    },
+    "Ukses": {
+      "prefix": "Ukses",
+      "body": [
+        "wp_kses( \$${1:content}, wp_kses_allowed_html( 'post' ) )"
+      ],
+      "description": "Sanitize HTML output"
+    },
+    "Uisset": {
+      "prefix": "Uisset",
+      "body": [
+        "<?php if ( isset( \$${1:variable} ) : ?>",
+        "\t${2}",
+        "<?php endif; ?>"
+      ],
+      "description": "Check if variable exists"
     }
   }
 }

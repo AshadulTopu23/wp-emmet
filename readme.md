@@ -8,65 +8,67 @@ Elementor snippets are designed for creating and styling widgets in Elementor, i
 
 | Prefix                 | Description                              | Usage                                                                 |
 |------------------------|------------------------------------------|----------------------------------------------------------------------|
-| econtentstart         | Starts a content section in Elementor widget | Initialize a content section for adding controls like text or media.  |
-| estylecontent         | Starts a style section in Elementor widget | Initialize a style section for adding styling controls like color or typography. |
-| etext                 | Adds a text control for titles           | Use to add a title field in a widget, editable in the Elementor panel. |
-| etextsubtitle         | Adds a text control for subtitles        | Use for subtitle fields in widgets, supports translation.            |
-| etextsubheading       | Adds a text control for subheadings      | Use for subheading fields in widgets, supports full-width input.     |
-| etextheading          | Adds a text control for headings         | Use for heading fields in widgets, ideal for section titles.         |
-| etextheadingtitle     | Adds a textarea for heading titles       | Use for longer heading titles, supports multi-line input.           |
-| etextbutton           | Adds button text and link controls       | Use to add customizable buttons with text and URL in widgets.        |
-| enumber               | Adds a number control with min/max/step  | Use for numeric inputs like price or quantity in widgets.            |
-| etextarea             | Adds a textarea control for descriptions | Use for multi-line text inputs like descriptions or notes.          |
-| ewisi                 | Adds a WYSIWYG editor control            | Use for rich text editing in widgets, supports HTML formatting.      |
-| eselect               | Adds a dropdown select control           | Use for style or option selection in widgets (e.g., style_one, style_two). |
-| ecolor                | Adds a color picker control              | Use to style elements like text or backgrounds with color selection. |
-| efontfamily           | Adds a font family control               | Use to customize font families for text elements in widgets.         |
-| etime                 | Adds a date-time picker control          | Use for date or time inputs in widgets, like event scheduling.       |
-| erepeater             | Adds a repeater control for lists        | Use for dynamic lists of items (e.g., testimonials, services) in widgets. |
-| etabs                 | Adds tabs for normal/hover states        | Use to organize styling controls for different states (normal, hover). |
-| eslider               | Adds a slider control for sizes          | Use for responsive size controls (e.g., icon size, width) in widgets. |
-| emargin               | Adds margin control with dimensions      | Use to adjust spacing around elements in widgets.                   |
-| epadding              | Adds padding control with dimensions     | Use to adjust internal spacing of elements in widgets.              |
-| elink                 | Adds a URL control for links             | Use for adding clickable links in widgets, supports external/nofollow. |
-| eimage                | Adds an image upload control             | Use for adding images to widgets, integrates with media library.    |
-| eicon%image           | Adds an icon picker control              | Use for selecting icons (e.g., Font Awesome) in widgets.            |
-| eboxshadow            | Adds a box shadow control                | Use to apply shadow effects to elements in widgets.                 |
-| etypography           | Adds typography control                  | Use to customize font size, weight, and style for text elements.    |
-| eborder               | Adds a border color control              | Use to style borders of elements in widgets.                        |
-| eopacity              | Adds an opacity slider control           | Use to adjust transparency of elements in widgets.                  |
-| ebackground           | Adds background control (classic/gradient/video) | Use to style backgrounds of elements in widgets.                  |
-| econdition            | Adds a condition for control visibility  | Use to show/hide controls based on other settings (e.g., style).    |
-| ecsstext              | Adds a custom CSS textarea control       | Use to allow custom CSS input for styling widget elements.          |
-| ethree                | Adds typography, color, and margin controls | Use for styling text elements with typography, color, and spacing. |
-| esvgicontogetherstyle | Adds SVG/icon color and size controls    | Use for styling SVG or icon elements in widgets.                    |
-| eattr                 | Outputs escaped attribute for translation | Use to safely output translatable attributes in widget templates.   |
-| ehr                   | Adds a divider control                   | Use to visually separate controls in the Elementor panel.           |
-| eheading              | Adds a heading control for sections      | Use to label sections or groups of controls in the Elementor panel. |
-| ealignment            | Adds text alignment control              | Use to align text or elements (left, center, right, justify) in widgets. |
-| ebradius              | Adds border radius control               | Use to round corners of elements in widgets.                        |
-| econditions           | Adds multiple conditions for visibility   | Use to control visibility of controls based on multiple settings.   |
-| efour                 | Adds typography, color, margin, padding  | Use for comprehensive text styling in widgets.                      |
-| esettings             | Outputs escaped settings value           | Use to safely display widget settings in templates.                 |
-| eswitch               | Adds a switcher control (show/hide)      | Use for toggleable options in widgets (e.g., show navigation).      |
-| wpkses                | Outputs settings with wp_kses sanitization | Use to safely output HTML content from settings in widget templates. |
-| eeschtml              | Outputs escaped HTML settings value      | Use to safely display settings as HTML in widget templates.         |
-| eicondirect           | Renders an icon from settings            | Use to display selected icons in widget templates.                  |
-| eimagethree           | Adds image height, width, border radius  | Use to style images with responsive dimensions and rounded corners. |
-| enav                  | Adds navigation color and hover styles   | Use for styling navigation arrows in sliders or carousels.          |
-| etwo                  | Adds typography and color controls       | Use for basic text styling in widgets.                              |
-| essubtitle            | Styles subtitle with typography, color, spacing | Use to style subtitle elements in widgets.                     |
-| estitle               | Styles title with typography, color, spacing | Use to style title elements in widgets.                         |
-| esdescription         | Styles description with typography, color, spacing | Use to style description text in widgets.                  |
-| essubheading          | Styles subheading with typography, color, spacing | Use to style subheading elements in widgets.                |
-| esheading             | Styles heading with typography, color, spacing | Use to style heading elements in widgets.                    |
-| esheadingtitle        | Styles heading title with typography, color, spacing | Use to style heading title elements in widgets.         |
-| esname                | Styles name with typography, color, spacing | Use to style name fields in widgets (e.g., team member names).   |
-| esplace               | Styles place with typography, color, spacing | Use to style location or place fields in widgets.              |
-| esdesignation         | Styles designation with typography, color, spacing | Use to style job titles or roles in widgets.             |
-| esdate                | Styles date with typography, color, spacing | Use to style date fields in widgets (e.g., event dates).         |
-| escard                | Styles card with background and padding  | Use to style card containers in widgets.                           |
-| eshow                 | Conditionally displays settings value    | Use to conditionally output settings in widget templates.           |
+| Econtentstart         | Starts a content section in Elementor widget | Initialize a content section for adding controls like text or media.  |
+| Estylecontent         | Starts a style section in Elementor widget | Initialize a style section for adding styling controls like color or typography. |
+| Etext                 | Adds a text control for titles           | Use to add a title field in a widget, editable in the Elementor panel. |
+| Etextsubtitle         | Adds a text control for subtitles        | Use for subtitle fields in widgets, supports translation.            |
+| Etextsubheading       | Adds a text control for subheadings      | Use for subheading fields in widgets, supports full-width input.     |
+| Etextheading          | Adds a text control for headings         | Use for heading fields in widgets, ideal for section titles.         |
+| Etextheadingtitle     | Adds a textarea for heading titles       | Use for longer heading titles, supports multi-line input.           |
+| Etextbutton           | Adds button text and link controls       | Use to add customizable buttons with text and URL in widgets.        |
+| Enumber               | Adds a number control with min/max/step  | Use for numeric inputs like price or quantity in widgets.            |
+| Etextarea             | Adds a textarea control for descriptions | Use for multi-line text inputs like descriptions or notes.          |
+| Ewisi                 | Adds a WYSIWYG editor control            | Use for rich text editing in widgets, supports HTML formatting.      |
+| Eselect               | Adds a dropdown select control           | Use for style or option selection in widgets (e.g., style_one, style_two). |
+| Ecolor                | Adds a color picker control              | Use to style elements like text or backgrounds with color selection. |
+| Efontfamily           | Adds a font family control               | Use to customize font families for text elements in widgets.         |
+| Edatetime             | Adds a date-time picker control          | Use for date or time inputs in widgets, like event scheduling.       |
+| Erepeater             | Adds a repeater control for lists        | Use for dynamic lists of items (e.g., testimonials, services) in widgets. |
+| Etabs                 | Adds tabs for normal/hover states        | Use to organize styling controls for different states (normal, hover). |
+| Eslider               | Adds a slider control for sizes          | Use for responsive size controls (e.g., icon size, width) in widgets. |
+| Emargin               | Adds margin control with dimensions      | Use to adjust spacing around elements in widgets.                   |
+| Epadding              | Adds padding control with dimensions     | Use to adjust internal spacing of elements in widgets.              |
+| Elink                 | Adds a URL control for links             | Use for adding clickable links in widgets, supports external/nofollow. |
+| Eimage                | Adds an image upload control             | Use for adding images to widgets, integrates with media library.    |
+| Eimageupload          | Adds an image upload control             | Use for adding images to widgets, integrates with media library.    |
+| Eiconpicker           | Adds an icon picker control              | Use for selecting icons (e.g., Font Awesome) in widgets.            |
+| Eshadow               | Adds a box shadow control                | Use to apply shadow effects to elements in widgets.                 |
+| Etypography           | Adds typography control                  | Use to customize font size, weight, and style for text elements.    |
+| Eborder               | Adds a border color control              | Use to style borders of elements in widgets.                        |
+| Eopacity              | Adds an opacity slider control           | Use to adjust transparency of elements in widgets.                  |
+| Ebackground           | Adds background control (classic/gradient/video) | Use to style backgrounds of elements in widgets.                  |
+| Econdition            | Adds a condition for control visibility  | Use to show/hide controls based on other settings (e.g., style).    |
+| Ecsstext              | Adds a custom CSS textarea control       | Use to allow custom CSS input for styling widget elements.          |
+| Etypothree            | Adds typography, color, and margin controls | Use for styling text elements with typography, color, and spacing. |
+| Esvgiconstyle         | Adds SVG/icon color and size controls    | Use for styling SVG or icon elements in widgets.                    |
+| Eattr                 | Outputs escaped attribute for translation | Use to safely output translatable attributes in widget templates.   |
+| Edivider              | Adds a divider control                   | Use to visually separate controls in the Elementor panel.           |
+| Eheading              | Adds a heading control for sections      | Use to label sections or groups of controls in the Elementor panel. |
+| Ealignment            | Adds text alignment control              | Use to align text or elements (left, center, right, justify) in widgets. |
+| Eradius               | Adds border radius control               | Use to round corners of elements in widgets.                        |
+| Econditions           | Adds multiple conditions for visibility   | Use to control visibility of controls based on multiple settings.   |
+| Etypofour             | Adds typography, color, margin, padding  | Use for comprehensive text styling in widgets.                      |
+| Esettings             | Outputs escaped settings value           | Use to safely display widget settings in templates.                 |
+| Eswitch               | Adds a switcher control (show/hide)      | Use for toggleable options in widgets (e.g., show navigation).      |
+| Wpkses                | Outputs settings with wp_kses sanitization | Use to safely output HTML content from settings in widget templates. |
+| Eeschtml              | Outputs escaped HTML settings value      | Use to safely display settings as HTML in widget templates.         |
+| Eiconshow             | Renders an icon from settings            | Use to display selected icons in widget templates.                  |
+| Eimagestyle           | Adds image height, width, border radius  | Use to style images with responsive dimensions and rounded corners. |
+| Eswipernav            | Adds Swiper navigation color and hover styles   | Use for styling navigation arrows in sliders or carousels.          |
+| Etypotwo              | Adds typography and color controls       | Use for basic text styling in widgets.                              |
+| Esubtitlestyle        | Styles subtitle with typography, color, spacing | Use to style subtitle elements in widgets.                     |
+| Etitlestyle           | Styles title with typography, color, spacing | Use to style title elements in widgets.                         |
+| Edescriptionstyle     | Styles description with typography, color, spacing | Use to style description text in widgets.                  |
+| Esubheadingstyle      | Styles subheading with typography, color, spacing | Use to style subheading elements in widgets.                |
+| Eheadingstyle         | Styles heading with typography, color, spacing | Use to style heading elements in widgets.                    |
+| Eheadingtitlestyle    | Styles heading title with typography, color, spacing | Use to style heading title elements in widgets.         |
+| Enamestyle            | Styles name with typography, color, spacing | Use to style name fields in widgets (e.g., team member names).   |
+| Eplacestyle           | Styles place with typography, color, spacing | Use to style location or place fields in widgets.              |
+| Edesignationstyle     | Styles designation with typography, color, spacing | Use to style job titles or roles in widgets.             |
+| Edatestyle            | Styles date with typography, color, spacing | Use to style date fields in widgets (e.g., event dates).         |
+| Ecardstyle            | Styles card with background and padding  | Use to style card containers in widgets.                           |
+| Eshow                 | Conditionally displays settings value    | Use to conditionally output settings in widget templates.           |
+| Ebordergroup          | Styles border style, border width, border color  | Use to border style in widgets.
 
 ### Example: Elementor Text Control
 ```php
@@ -88,18 +90,18 @@ WordPress snippets are designed for WordPress-specific functionality, such as po
 
 | Prefix                     | Description                                | Usage                                                                 |
 |----------------------------|--------------------------------------------|----------------------------------------------------------------------|
-| wp_title_function         | Outputs post/page title                    | Use in templates to display the title of the current post or page.   |
-| wp_content_function       | Outputs post/page content                  | Use in templates to display the content of the current post or page. |
-| wp_post_thumbnail_function | Outputs featured image URL                 | Use to display the URL of a post’s featured image in templates.      |
-| wp_post_if_function       | Standard WordPress loop                    | Use for iterating through posts in templates with a full loop structure. |
-| wp_ewwpost_if_function    | Simplified WordPress loop                  | Use for a concise post loop in templates.                           |
-| wp_ewwsspost_if_function  | Duplicate simplified loop (same as above)  | Same as `wp_ewwpost_if_function` (consider merging or removing).    |
-| wp_ewwsspssost_if_function | Basic WordPress conditional check          | Use for simple post existence checks in templates.                  |
-| location                  | Outputs theme directory URI                | Use to reference theme assets (e.g., images, CSS) in templates.     |
-| acf_if                    | Conditional ACF field output               | Use to display ACF field values conditionally in templates.         |
-| acf_foreach               | Loops through ACF repeater field           | Use to iterate through ACF repeater fields in templates.            |
-| pluginhead                | Plugin header comment                     | Use as the header for custom WordPress plugins.                    |
-| pactivedeactive           | Plugin activation/deactivation hooks       | Use to define actions on plugin activation/deactivation.            |
+| Wtitle         | Outputs post/page title                    | Use in templates to display the title of the current post or page.   |
+| Wcontent       | Outputs post/page content                  | Use in templates to display the content of the current post or page. |
+| Wthumbnailurl  | Outputs featured image URL                 | Use to display the URL of a post’s featured image in templates.      |
+| Wloop          | Standard WordPress loop                    | Use for iterating through posts in templates with a full loop structure. |
+| Wloopsimple    | Simplified WordPress loop                  | Use for a concise post loop in templates.                           |
+| Wif            | Duplicate simplified loop (same as above)  | Same as `Wloopsimple` (consider merging or removing).               |
+| Wthemeuri      | Basic WordPress conditional check          | Use for simple post existence checks in templates.                  |
+| location       | Outputs theme directory URI                | Use to reference theme assets (e.g., images, CSS) in templates.     |
+| Wacfif         | Conditional ACF field output               | Use to display ACF field values conditionally in templates.         |
+| Wacfforeach    | Loops through ACF repeater field           | Use to iterate through ACF repeater fields in templates.            |
+| Wpluginheader  | Plugin header comment                      | Use as the header for custom WordPress plugins.                     |
+| Wpluginhooks   | Plugin activation/deactivation hooks       | Use to define actions on plugin activation/deactivation.            |
 
 ### Example: WordPress Loop
 ```php
@@ -117,34 +119,35 @@ JavaScript and jQuery snippets are designed for DOM manipulation, event handling
 
 | Prefix                 | Description                                | Usage                                                                 |
 |------------------------|--------------------------------------------|----------------------------------------------------------------------|
-| documentstyle         | Changes element style (color)              | Use to dynamically change an element’s CSS color via JavaScript.     |
-| documentid            | Sets element innerHTML                     | Use to update the content of an element by ID.                      |
-| documentclass         | Sets innerHTML for first element by class  | Use to update content of the first element with a specific class.   |
-| documentsrc           | Changes image source                       | Use to dynamically update an image’s `src` attribute.               |
-| dc                    | Writes content to document                 | Use for direct document output (less common, use with caution).     |
-| documentquery         | Sets style via querySelector               | Use to apply styles to elements selected by CSS selectors.          |
-| eventlistener         | Adds a click event listener                | Use to attach click events to elements with a callback function.    |
-| log                   | Logs to console                            | Use for debugging by logging values to the browser console.         |
-| jqready               | jQuery document ready event                | Use to run code when the DOM is fully loaded with jQuery.           |
-| jqclick               | jQuery click event handler                 | Use to attach click events to elements with jQuery.                 |
-| jqslideup             | jQuery slideUp animation                   | Use to animate an element sliding up (hiding it).                   |
-| jqslidedown           | jQuery slideDown animation                 | Use to animate an element sliding down (showing it).                |
-| jqslidetoggle         | jQuery slideToggle animation               | Use to toggle an element’s visibility with a slide animation.       |
-| jqanimatetoggle       | jQuery animate height toggle               | Use to animate an element’s height for show/hide effects.           |
-| jqcss                 | Applies CSS styles with jQuery             | Use to dynamically style elements with multiple CSS properties.     |
-| jqcssadd              | Adds CSS classes with jQuery               | Use to add classes to elements for styling or behavior.             |
-| jqremovecss           | Removes CSS classes with jQuery            | Use to remove classes from elements.                               |
-| jqtogglecss           | Toggles CSS classes with jQuery            | Use to toggle classes on elements for dynamic styling.              |
-| jqappend              | Appends content with jQuery                | Use to add content to the end of an element.                       |
-| jqprepand             | Prepends content with jQuery               | Use to add content to the start of an element.                     |
-| jqremove              | Removes elements with jQuery               | Use to remove elements matching a selector.                        |
-| jqanimate             | Custom jQuery animation                    | Use for custom animations (e.g., position, opacity, size).         |
-| terneryjs             | JavaScript ternary operator                | Use for concise conditional assignments.                           |
-| switchjs              | JavaScript switch statement                | Use for multi-case conditional logic.                              |
-| breakifjs             | JavaScript loop with break                 | Use to exit a loop based on a condition.                           |
-| arrowjs               | JavaScript arrow function                  | Use for concise function definitions.                              |
-| setjs                 | JavaScript Set object                      | Use to manage unique values and iterate through them.               |
-| mapjs                 | JavaScript Map object                      | Use for key-value pair storage and retrieval.                      |
+| Jstyle                 | Changes element style (color)              | Use to dynamically change an element’s CSS color via JavaScript.     |
+| Jinnerhtml             | Sets element innerHTML                     | Use to update the content of an element by ID.                      |
+| Jclasshtml             | Sets innerHTML for first element by class  | Use to update content of the first element with a specific class.   |
+| Jsrc                   | Changes image source                       | Use to dynamically update an image’s `src` attribute.               |
+| Jwrite                 | Writes content to document                 | Use for direct document output (less common, use with caution).     |
+| Jqueryselector         | Sets style via querySelector               | Use to apply styles to elements selected by CSS selectors.          |
+| Jeventlistener         | Adds a click event listener                | Use to attach click events to elements with a callback function.    |
+| Jlog                   | Logs to console                            | Use for debugging by logging values to the browser console.         |
+| Jforeach               | Loop Javascript array                  | Use for looping javascript array        |
+| jqready                | jQuery document ready event                | Use to run code when the DOM is fully loaded with jQuery.           |
+| jqclick                | jQuery click event handler                 | Use to attach click events to elements with jQuery.                 |
+| jqslideup              | jQuery slideUp animation                   | Use to animate an element sliding up (hiding it).                   |
+| jqslidedown            | jQuery slideDown animation                 | Use to animate an element sliding down (showing it).                |
+| jqslidetoggle          | jQuery slideToggle animation               | Use to toggle an element’s visibility with a slide animation.       |
+| jqanimatetoggle        | jQuery animate height toggle               | Use to animate an element’s height for show/hide effects.           |
+| jqcss                  | Applies CSS styles with jQuery             | Use to dynamically style elements with multiple CSS properties.     |
+| jqcssadd               | Adds CSS classes with jQuery               | Use to add classes to elements for styling or behavior.             |
+| jqremovecss            | Removes CSS classes with jQuery            | Use to remove classes from elements.                               |
+| jqtogglecss            | Toggles CSS classes with jQuery            | Use to toggle classes on elements for dynamic styling.              |
+| jqappend               | Appends content with jQuery                | Use to add content to the end of an element.                       |
+| jqprepand              | Prepends content with jQuery               | Use to add content to the start of an element.                     |
+| jqremove               | Removes elements with jQuery               | Use to remove elements matching a selector.                        |
+| jqanimate              | Custom jQuery animation                    | Use for custom animations (e.g., position, opacity, size).         |
+| terneryjs              | JavaScript ternary operator                | Use for concise conditional assignments.                           |
+| switchjs               | JavaScript switch statement                | Use for multi-case conditional logic.                              |
+| breakifjs              | JavaScript loop with break                 | Use to exit a loop based on a condition.                           |
+| arrowjs                | JavaScript arrow function                  | Use for concise function definitions.                              |
+| setjs                  | JavaScript Set object                      | Use to manage unique values and iterate through them.               |
+| mapjs                  | JavaScript Map object                      | Use for key-value pair storage and retrieval.                      |
 
 ### Example: jQuery Click Event
 ```javascript
@@ -160,7 +163,7 @@ PHP snippets cover general PHP functionality, including arrays, loops, string ma
 
 | Prefix                       | Description                                | Usage                                                                 |
 |------------------------------|--------------------------------------------|----------------------------------------------------------------------|
-| foreach                     | PHP foreach loop                           | Use to iterate through arrays or objects.                           |
+| Pforeach                     | PHP foreach loop                           | Use to iterate through arrays or objects.                           |
 | associativearray            | PHP associative array                      | Use to define key-value pair arrays.                               |
 | multidimentionalarray       | PHP multidimensional array                 | Use for nested arrays (e.g., data tables).                          |
 | strpositioncheck            | Checks string position                     | Use to find the position of a substring in a string.               |
@@ -168,18 +171,18 @@ PHP snippets cover general PHP functionality, including arrays, loops, string ma
 | array                       | Defines a simple PHP array                 | Use for basic indexed arrays.                                      |
 | minvalue                    | Finds minimum value                        | Use to get the smallest value from a set of numbers.               |
 | maxvalue                    | Finds maximum value                        | Use to get the largest value from a set of numbers.                |
-| e                           | PHP echo statement                         | Use to output content (incomplete, consider expanding).            |
+| Pecho                       | PHP echo statement                         | Use to output content (incomplete, consider expanding).            |
 | abs                         | PHP absolute value                         | Use to get the absolute value of a number.                         |
 | root                        | PHP square root                            | Use to calculate the square root of a number.                      |
 | round                       | PHP round number                           | Use to round a floating-point number.                              |
 | randomfunc                  | PHP random number                          | Use to generate a random number.                                   |
-| definearray                 | Defines a constant array                   | Use to create a constant array with predefined values.             |
-| ifphp                       | PHP if condition                           | Use for conditional logic in PHP scripts.                          |
-| elsephp                     | PHP else condition                         | Use to define alternative logic in conditionals.                   |
-| elseifphp                   | PHP elseif condition                       | Use for additional conditional checks.                             |
+| Definearray                 | Defines a constant array                   | Use to create a constant array with predefined values.             |
+| Pif                       | PHP if condition                           | Use for conditional logic in PHP scripts.                          |
+| Elsephp                     | PHP else condition                         | Use to define alternative logic in conditionals.                   |
+| Elseifphp                   | PHP elseif condition                       | Use for additional conditional checks.                             |
 | switchphp                   | PHP switch statement                       | Use for multi-case conditional logic in PHP.                       |
 | whilephp                    | PHP while loop                             | Use for looping while a condition is true.                         |
-| dowhilephp                  | PHP do-while loop                          | Use for looping at least once before checking a condition.         |
+| Dowhilephp                  | PHP do-while loop                          | Use for looping at least once before checking a condition.         |
 | forphp                      | PHP for loop                               | Use for iterating a specific number of times.                      |
 | sortfullfunction            | Sorts array and iterates                   | Use to sort and display array elements.                            |
 | rsortfullfunction           | Reverse sorts array and iterates           | Use to sort array in descending order and display.                 |
@@ -226,7 +229,7 @@ PHP snippets cover general PHP functionality, including arrays, loops, string ma
 | moveuploadedfilePHP         | Moves uploaded file                        | Use to handle file uploads by moving files to a destination.       |
 | setcookiesPHP               | Sets a cookie                              | Use to create a browser cookie with expiration and path.           |
 | br                          | Outputs newline in PHP                     | Use to add a line break in output (e.g., for CLI or plain text).   |
-| define                      | Defines a constant                        | Use to create a constant value in PHP.                             |
+| Define                      | Defines a constant                        | Use to create a constant value in PHP.                             |
 | func                        | Defines a JavaScript function              | Use to create a named function (misplaced in PHP category).        |
 
 ### Example: PHP Foreach Loop
@@ -243,16 +246,15 @@ foreach ($variable as $key => $value) {
 |-----------------|--------------------------------------------|----------------------------------------------------------------------|
 | iteration-foreach | JavaScript forEach loop                   | Use to iterate through arrays in JavaScript.                        |
 | comment         | Multi-line comment block                  | Use to add documentation or comments in PHP/JavaScript code.        |
-| elseifdirectphp | WordPress elseif for ACF field            | Use in templates to check ACF fields conditionally.                 |
-| elsedirectphp   | WordPress else statement                  | Use in templates for alternative logic in conditionals.             |
+| Elseifdirectphp | WordPress elseif for ACF field            | Use in templates to check ACF fields conditionally.                 |
+| Elsedirectphp   | WordPress else statement                  | Use in templates for alternative logic in conditionals.             |
 | foreachdirect   | WordPress foreach for settings            | Use to loop through Elementor settings arrays in templates.         |
 | foreachsimple   | Simple PHP foreach loop                   | Use for basic array iteration in WordPress templates.               |
 | labelblock      | Elementor label_block setting             | Use to make text controls full-width in Elementor widgets.          |
-| ee              | Outputs esc_html function                 | Use to escape HTML output in WordPress templates.                   |
-| emptyphp        | Conditional check for empty settings      | Use to conditionally display content if settings are not empty.     |
+| Ee              | Outputs esc_html function                 | Use to escape HTML output in WordPress templates.                   |
+| Emptyphp        | Conditional check for empty settings      | Use to conditionally display content if settings are not empty.     |
 | translate       | Outputs translatable text                 | Use to output translatable strings in WordPress templates.          |
-| isset           | Checks if theme option is set             | Use to conditionally display content based on theme options.        |
-| ddd             | Placeholder/invalid snippet               | Likely a typo or test; consider removing or clarifying purpose.     |
+| Uisset           | Checks if theme option is set             | Use to conditionally display content based on theme options.        |
 
 ### Notes
 - **Duplicates**: The snippet `wp_ewwsspost_if_function` is identical to `wp_ewwpost_if_function`. Consider removing or renaming to avoid redundancy.
