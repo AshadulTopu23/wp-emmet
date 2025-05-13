@@ -9,20 +9,22 @@ Elementor snippets are designed for creating and styling widgets in Elementor, i
 | Prefix                 | Description                              | Usage                                                                 |
 |------------------------|------------------------------------------|----------------------------------------------------------------------|
 | Econtentstart         | Starts a content section in Elementor widget | Initialize a content section for adding controls like text or media.  |
-| Estylecontent         | Starts a style section in Elementor widget | Initialize a style section for adding styling controls like color or typography. |
+| Estylestart         | Starts a style section in Elementor widget | Initialize a style section for adding styling controls like color or typography. |
 | Etext                 | Adds a text control for titles           | Use to add a title field in a widget, editable in the Elementor panel. |
 | Etextsubtitle         | Adds a text control for subtitles        | Use for subtitle fields in widgets, supports translation.            |
 | Etextsubheading       | Adds a text control for subheadings      | Use for subheading fields in widgets, supports full-width input.     |
 | Etextheading          | Adds a text control for headings         | Use for heading fields in widgets, ideal for section titles.         |
-| Etextheadingtitle     | Adds a textarea for heading titles       | Use for longer heading titles, supports multi-line input.           |
+| Etextheadingtitle     | Adds a textarea for heading titles       | Use for longer heading titles, supports multi-line input.            |
 | Etextbutton           | Adds button text and link controls       | Use to add customizable buttons with text and URL in widgets.        |
 | Enumber               | Adds a number control with min/max/step  | Use for numeric inputs like price or quantity in widgets.            |
-| Etextarea             | Adds a textarea control for descriptions | Use for multi-line text inputs like descriptions or notes.          |
+| Etextarea             | Adds a textarea control for descriptions | Use for multi-line text inputs like descriptions or notes.           |
 | Ewisi                 | Adds a WYSIWYG editor control            | Use for rich text editing in widgets, supports HTML formatting.      |
 | Eselect               | Adds a dropdown select control           | Use for style or option selection in widgets (e.g., style_one, style_two). |
 | Ecolor                | Adds a color picker control              | Use to style elements like text or backgrounds with color selection. |
 | Efontfamily           | Adds a font family control               | Use to customize font families for text elements in widgets.         |
+| Efontsize             | Adds a font Size family control          | Use to customize font size for text elements in widgets.         |
 | Edatetime             | Adds a date-time picker control          | Use for date or time inputs in widgets, like event scheduling.       |
+| Etag                  | Adds HTML tag h1 to h6                   | Use for HTML tag for title and subtitle in widgets.       |
 | Erepeater             | Adds a repeater control for lists        | Use for dynamic lists of items (e.g., testimonials, services) in widgets. |
 | Etabs                 | Adds tabs for normal/hover states        | Use to organize styling controls for different states (normal, hover). |
 | Eslider               | Adds a slider control for sizes          | Use for responsive size controls (e.g., icon size, width) in widgets. |
@@ -36,17 +38,20 @@ Elementor snippets are designed for creating and styling widgets in Elementor, i
 | Etypography           | Adds typography control                  | Use to customize font size, weight, and style for text elements.    |
 | Eborder               | Adds a border color control              | Use to style borders of elements in widgets.                        |
 | Eopacity              | Adds an opacity slider control           | Use to adjust transparency of elements in widgets.                  |
-| Ebackground           | Adds background control (classic/gradient/video) | Use to style backgrounds of elements in widgets.                  |
+| Ebackground           | Adds background control (classic/gradient/video) | Use to style backgrounds of elements in widgets.            |
+| Ebackgroundlabel      | background control (classic/gradient/video) with custom label | Use to style backgrounds of elements in widgets.            |
 | Econdition            | Adds a condition for control visibility  | Use to show/hide controls based on other settings (e.g., style).    |
 | Ecsstext              | Adds a custom CSS textarea control       | Use to allow custom CSS input for styling widget elements.          |
 | Etypothree            | Adds typography, color, and margin controls | Use for styling text elements with typography, color, and spacing. |
 | Esvgiconstyle         | Adds SVG/icon color and size controls    | Use for styling SVG or icon elements in widgets.                    |
-| Eattr                 | Outputs escaped attribute for translation | Use to safely output translatable attributes in widget templates.   |
+| Eattr                 | Outputs escaped attribute for translation | Use to safely output translatable attributes in widget templates.  |
 | Edivider              | Adds a divider control                   | Use to visually separate controls in the Elementor panel.           |
 | Eheading              | Adds a heading control for sections      | Use to label sections or groups of controls in the Elementor panel. |
 | Ealignment            | Adds text alignment control              | Use to align text or elements (left, center, right, justify) in widgets. |
+| Ehorizontaltext       | Adds text Horizontal alignment control   | Use to horizontal align text or elements (left, center, right,) in widgets. |
+| Evertical             | Adds vertical alignment control          | Use to vertical align elements (top, middle, bottom) in widgets.    |
 | Eradius               | Adds border radius control               | Use to round corners of elements in widgets.                        |
-| Econditions           | Adds multiple conditions for visibility   | Use to control visibility of controls based on multiple settings.   |
+| Econditions           | Adds multiple conditions for visibility   | Use to control visibility of controls based on multiple settings.  |
 | Etypofour             | Adds typography, color, margin, padding  | Use for comprehensive text styling in widgets.                      |
 | Esettings             | Outputs escaped settings value           | Use to safely display widget settings in templates.                 |
 | Eswitch               | Adds a switcher control (show/hide)      | Use for toggleable options in widgets (e.g., show navigation).      |

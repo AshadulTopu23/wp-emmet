@@ -66,7 +66,7 @@
         "\t}",
         "",
         "\tprotected function render() {",
-        "\t\t\$settings = \$this->get_settings_for_display();",
+        "\t\t\$$settings = \$this->get_settings_for_display();",
         "\t\t// Output the widget HTML",
         "\t}",
         "",
@@ -80,7 +80,7 @@
     "TextControl": {
       "prefix": "Etext",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${1:control_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
@@ -95,7 +95,7 @@
     "TextareaControl": {
       "prefix": "Etextarea",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${1:control_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
@@ -110,7 +110,7 @@
     "WysiwygControl": {
       "prefix": "Ewysiwyg",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${1:control_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
@@ -124,7 +124,7 @@
     "SelectControl": {
       "prefix": "Eselect",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${1:control_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
@@ -142,7 +142,7 @@
     "ColorControl": {
       "prefix": "Ecolor",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${1:control_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
@@ -158,7 +158,7 @@
     "ImageControl": {
       "prefix": "Eimage",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${1:control_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
@@ -174,7 +174,7 @@
     "IconControl": {
       "prefix": "Eicon",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${1:control_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
@@ -191,7 +191,7 @@
     "SliderControl": {
       "prefix": "Eslider",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${1:control_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
@@ -215,7 +215,7 @@
     "SwitchControl": {
       "prefix": "Eswitch",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${1:control_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Label}', '${3:text-domain}' ),",
@@ -244,7 +244,7 @@
         "\t]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "\t'${5:repeater_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${6:Repeater Label}', '${3:text-domain}' ),",
@@ -267,7 +267,7 @@
     "TypographyGroup": {
       "prefix": "Etypo",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "\tGroup_Control_Typography::get_type(),",
         "\t[",
         "\t\t'name' => '${1:typography_name}',",
@@ -277,25 +277,10 @@
       ],
       "description": "Typography group control"
     },
-    "BackgroundGroup": {
-      "prefix": "Ebackground",
-      "body": [
-        "$this->add_group_control(",
-        "\tGroup_Control_Background::get_type(),",
-        "\t[",
-        "\t\t'name' => '${1:background_name}',",
-        "\t\t'label' => esc_html__( '${2:Background}', '${3:text-domain}' ),",
-        "\t\t'types' => [ 'classic', 'gradient' ],",
-        "\t\t'selector' => '{{WRAPPER}} ${4:.selector}',",
-        "\t]",
-        ");"
-      ],
-      "description": "Background group control"
-    },
     "BorderGroup": {
       "prefix": "Eborder",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "\tGroup_Control_Border::get_type(),",
         "\t[",
         "\t\t'name' => '${1:border_name}',",
@@ -308,7 +293,7 @@
     "BoxShadowGroup": {
       "prefix": "Eboxshadow",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "\tGroup_Control_Box_Shadow::get_type(),",
         "\t[",
         "\t\t'name' => '${1:shadow_name}',",
@@ -321,7 +306,7 @@
     "Section": {
       "prefix": "Esection",
       "body": [
-        "$this->start_controls_section(",
+        "$$this->start_controls_section(",
         "\t'${1:section_name}',",
         "\t[",
         "\t\t'label' => esc_html__( '${2:Section Label}', '${3:text-domain}' ),",
@@ -331,18 +316,18 @@
         "",
         "// Add controls here",
         "",
-        "$this->end_controls_section();"
+        "$$this->end_controls_section();"
       ],
       "description": "Control section"
     },
     "Tabs": {
       "prefix": "Etabs",
       "body": [
-        "$this->start_controls_tabs(",
+        "$$this->start_controls_tabs(",
         "\t'${1:tabs_name}'",
         ");",
         "",
-        "$this->start_controls_tab(",
+        "$$this->start_controls_tab(",
         "\t'${2:tab_name}_normal',",
         "\t[",
         "\t\t'label' => esc_html__( '${3:Normal}', '${4:text-domain}' ),",
@@ -351,9 +336,9 @@
         "",
         "// Normal tab controls",
         "",
-        "$this->end_controls_tab();",
+        "$$this->end_controls_tab();",
         "",
-        "$this->start_controls_tab(",
+        "$$this->start_controls_tab(",
         "\t'${2:tab_name}_hover',",
         "\t[",
         "\t\t'label' => esc_html__( '${5:Hover}', '${4:text-domain}' ),",
@@ -362,9 +347,9 @@
         "",
         "// Hover tab controls",
         "",
-        "$this->end_controls_tab();",
+        "$$this->end_controls_tab();",
         "",
-        "$this->end_controls_tabs();"
+        "$$this->end_controls_tabs();"
       ],
       "description": "Control tabs"
     },
@@ -372,11 +357,11 @@
       "prefix": "Erender",
       "body": [
         "protected function render() {",
-        "\t$settings = $this->get_settings_for_display();",
+        "\t$$settings = $this->get_settings_for_display();",
         "\t?>",
         "\t<div class=\"${1:widget-class}\">",
-        "\t\t<?php if ( ! empty( \$settings['title'] ) : ?>",
-        "\t\t\t<h2><?php echo esc_html( \$settings['title'] ); ?></h2>",
+        "\t\t<?php if ( ! empty( \$$settings['title'] ) : ?>",
+        "\t\t\t<h2><?php echo esc_html( \$$settings['title'] ); ?></h2>",
         "\t\t<?php endif; ?>",
         "\t</div>",
         "\t<?php",
@@ -401,28 +386,28 @@
     "RenderIcon": {
       "prefix": "Erendericon",
       "body": [
-        "<?php \\Elementor\\Icons_Manager::render_icon( \$settings['${1:icon}'], [ 'aria-hidden' => 'true' ] ); ?>"
+        "<?php \\Elementor\\Icons_Manager::render_icon( \$$settings['${1:icon}'], [ 'aria-hidden' => 'true' ] ); ?>"
       ],
       "description": "Render icon in template"
     },
     "ContentStart": {
       "prefix": "Econtentstart",
       "body": [
-        "$this->start_controls_section(",
+        "$$this->start_controls_section(",
         "    'content',",
         "    [",
         "        'label' => esc_html__('', 'plugin-name')",
         "    ]",
         ");",
         "",
-        "$this->end_controls_section();"
+        "$$this->end_controls_section();"
       ],
       "description": "Starts a content section in Elementor widget"
     },
     "StyleContent": {
-      "prefix": "Estyletab",
+      "prefix": "Estylestart",
       "body": [
-        "$this->start_controls_section(",
+        "$$this->start_controls_section(",
         "    'style',",
         "    [",
         "        'label' => esc_html__('', 'plugin-name'),",
@@ -430,14 +415,55 @@
         "    ]",
         ");",
         "",
-        "$this->end_controls_section();"
+        "$$this->end_controls_section();"
       ],
       "description": "Starts a style section in Elementor widget"
+    },
+    "Tag": {
+      "prefix": "Etag",
+      "body": [
+        "$$this->add_control(",
+            "'title_tag',",
+            "[",
+                "'label' => esc_html__('Title HTML Tag', 'tp-elements'),",
+                "'type' => Controls_Manager::CHOOSE,",
+                "'options' => [",
+                "    'h1'  => [",
+                "        'title' => esc_html__('H1', 'tp-elements'),",
+                "       'icon' => 'eicon-editor-h1'",
+                "    ],",
+                "    'h2'  => [",
+                "        'title' => esc_html__('H2', 'tp-elements'),",
+                "        'icon' => 'eicon-editor-h2'",
+                "    ],",
+                "    'h3'  => [",
+                "        'title' => esc_html__('H3', 'tp-elements'),",
+                "        'icon' => 'eicon-editor-h3'",
+                "    ],",
+                "    'h4'  => [",
+                "        'title' => esc_html__('H4', 'tp-elements'),",
+                "        'icon' => 'eicon-editor-h4'",
+                "    ],",
+                "    'h5'  => [",
+                "        'title' => esc_html__('H5', 'tp-elements'),",
+                "        'icon' => 'eicon-editor-h5'",
+                "    ],",
+                "    'h6'  => [",
+                "        'title' => esc_html__('H6', 'tp-elements'),",
+                "        'icon' => 'eicon-editor-h6'",
+                "    ]",
+                "],",
+                "'default' => 'h3',",
+                "'toggle' => false,",
+            "]",
+        ");"
+      ],
+      "description": "Adds a text control for titles"
     },
     "TextTitle": {
       "prefix": "Etexttitle",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'title',",
         "    [",
         "        'label' => esc_html__( 'Title', 'plugin-name' ),",
@@ -452,7 +478,7 @@
     "TextSubtitle": {
       "prefix": "Etextsubtitle",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'subtitle',",
         "    [",
         "        'label' => esc_html__( 'Subtitle', 'plugin-name' ),",
@@ -467,7 +493,7 @@
     "TextSubheading": {
       "prefix": "Etextsubheading",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'subheading',",
         "    [",
         "        'label' => esc_html__( 'Subheading', 'plugin-name' ),",
@@ -482,7 +508,7 @@
     "TextHeading": {
       "prefix": "Etextheading",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'heading',",
         "    [",
         "        'label' => esc_html__( 'Heading', 'plugin-name' ),",
@@ -497,7 +523,7 @@
     "TextHeadingTitle": {
       "prefix": "Etextheadingtitle",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'headingtitle',",
         "    [",
         "        'label' => esc_html__( 'Heading Title', 'plugin-name' ),",
@@ -512,7 +538,7 @@
     "TextButton": {
       "prefix": "Etextbutton",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'buttontext',",
         "    [",
         "        'label' => esc_html__( 'Button Text', 'plugin-name' ),",
@@ -522,7 +548,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'buttonlink',",
         "    [",
         "        'label' => esc_html__( 'Button Link', 'plugin-name' ),",
@@ -543,7 +569,7 @@
     "NumberControl": {
       "prefix": "Enumber",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'price',",
         "    [",
         "        'label' => esc_html__( 'Price', 'plugin-name' ),",
@@ -560,7 +586,7 @@
     "TextareaDescription": {
       "prefix": "Etextareadesc",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'description',",
         "    [",
         "        'label' => esc_html__( 'Description', 'plugin-name' ),",
@@ -575,7 +601,7 @@
     "WysiwygControl": {
       "prefix": "Ewisi",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'item_description',",
         "    [",
         "        'label' => esc_html__( 'Description', 'plugin-name' ),",
@@ -589,7 +615,7 @@
     "SelectStyle": {
       "prefix": "Eselectstyle",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'style_design',",
         "    [",
         "        'label'     => esc_html__( 'Style', 'plugin-name' ),",
@@ -607,7 +633,7 @@
     "ColorControl": {
       "prefix": "Ecolor",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_color',",
         "    [",
         "        'label' => esc_html__( 'Color', 'plugin-name' ),",
@@ -623,7 +649,7 @@
     "FontFamily": {
       "prefix": "Efontfamily",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'font_family',",
         "    [",
         "        'label' => esc_html__( 'Font Family', 'plugin-name' ),",
@@ -637,10 +663,35 @@
       ],
       "description": "Adds a font family control"
     },
+    "ElementorFontSize": {
+    "prefix": "Efontsize",
+    "body": [
+      "        $this->add_responsive_control(",
+      "            'icon_font_size',",
+      "            [",
+      "                'label' => esc_html__('Font Size', 'plugin-name'),",
+      "                'type' => \\Elementor\\Controls_Manager::SLIDER,",
+      "                'size_units' => ['px'],",
+      "                'range' => [",
+      "                    'px' => [",
+      "                        'min' => 1,",
+      "                        'max' => 100,",
+      "                        'step' => 1,",
+      "                    ],",
+      "                ],",
+      "                'selectors' => [",
+      "                    '{{WRAPPER}} .tp-banner-slide-content .tp-banner-icon i' => 'font-size: {{SIZE}}{{UNIT}};',",
+      "                    '{{WRAPPER}} .tp-banner-slide-content .tp-banner-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',",
+      "                ],",
+      "            ]",
+      "        );"
+    ],
+    "description": "Elementor font Size"
+  },
     "DateTime": {
       "prefix": "Edatetime",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'due_date',",
         "    [",
         "        'label' => esc_html__( 'Due Date', 'plugin-name' ),",
@@ -673,7 +724,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'list_repeater',",
         "    [",
         "        'label' => esc_html__( 'Repeater List', 'plugin-name' ),",
@@ -698,39 +749,39 @@
     "StyleTabs": {
       "prefix": "Estyletabs",
       "body": [
-        "$this->start_controls_tabs(",
+        "$$this->start_controls_tabs(",
         "    'style_tabs'",
         ");",
         "",
-        "$this->start_controls_tab(",
+        "$$this->start_controls_tab(",
         "    'style_normal_tab',",
         "    [",
         "        'label' => esc_html__( 'Normal', 'plugin-name' ),",
         "    ]",
         ");",
         "",
-        "$this->add_control();",
+        "$$this->add_control();",
         "",
-        "$this->end_controls_tab();",
-        "$this->start_controls_tab(",
+        "$$this->end_controls_tab();",
+        "$$this->start_controls_tab(",
         "    'style_hover_tab',",
         "    [",
         "        'label' => esc_html__( 'Hover', 'plugin-name' ),",
         "    ]",
         ");",
         "",
-        "$this->add_control();",
+        "$$this->add_control();",
         "",
-        "$this->end_controls_tab();",
+        "$$this->end_controls_tab();",
         "",
-        "$this->end_controls_tabs();"
+        "$$this->end_controls_tabs();"
       ],
       "description": "Adds tabs for normal/hover states"
     },
     "SliderControl": {
       "prefix": "Eslider",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'icon_size',",
         "    [",
         "        'label' => esc_html__( 'Size', 'plugin-name' ),",
@@ -758,7 +809,7 @@
     "widthControl": {
       "prefix": "Ewidth",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_width',",
         "    [",
         "        'label' => esc_html__( 'Width', 'plugin-name' ),",
@@ -786,7 +837,7 @@
     "heightControl": {
       "prefix": "Eheight",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_height',",
         "    [",
         "        'label' => esc_html__( 'Height', 'plugin-name' ),",
@@ -814,7 +865,7 @@
     "sizeControl": {
       "prefix": "Esize",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'icon_size',",
         "    [",
         "        'label' => esc_html__( 'Size', 'plugin-name' ),",
@@ -842,7 +893,7 @@
     "MarginControl": {
       "prefix": "Emargin",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -859,7 +910,7 @@
     "PaddingControl": {
       "prefix": "Epadding",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -876,7 +927,7 @@
     "LinkControl": {
       "prefix": "Elink",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'website_link',",
         "    [",
         "        'label' => esc_html__( 'Link', 'plugin-name' ),",
@@ -897,7 +948,7 @@
     "ImageUpload": {
       "prefix": "Eimageupload",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'image',",
         "    [",
         "        'label' => esc_html__( 'Choose Image', 'plugin-name' ),",
@@ -913,7 +964,7 @@
     "IconPicker": {
       "prefix": "Eiconpicker",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_icon',",
         "    [",
         "        'label' => esc_html__( 'Icon', 'plugin-name' ),",
@@ -930,7 +981,7 @@
     "BoxShadow": {
       "prefix": "Eshadow",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    \\Elementor\\Group_Control_Box_Shadow::get_type(),",
         "    [",
         "        'name' => 'box_shadow',",
@@ -943,7 +994,7 @@
     "TypographyControl": {
       "prefix": "Etypography",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    \\Elementor\\Group_Control_Typography::get_type(),",
         "    [",
         "        'name' => '_typography',",
@@ -956,7 +1007,7 @@
     "BorderColor": {
       "prefix": "Ebordercolor",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_color',",
         "    [",
         "        'label' => esc_html__( 'Card Border Color', 'plugin-name' ),",
@@ -972,10 +1023,10 @@
     "OpacityControl": {
       "prefix": "Eopacity",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_opacity',",
         "    [",
-        "        'label' => esc_html__( 'Border Color Opacity', 'plugin-name' ),",
+        "        'label' => esc_html__( 'Opacity', 'plugin-name' ),",
         "        'type' => \\Elementor\\Controls_Manager::SLIDER,",
         "        'range' => [",
         "            'min' => 0,",
@@ -993,7 +1044,7 @@
     "BackgroundControl": {
       "prefix": "Ebackground",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    \\Elementor\\Group_Control_Background::get_type(),",
         "    [",
         "        'name' => 'background',",
@@ -1005,6 +1056,31 @@
       ],
       "description": "Adds background control (classic/gradient/video)"
     },
+    "ElementorBackgroundwithcustomlabel": {
+    "prefix": "Ebackgroundlabel",
+    "body": [
+      "       $this->add_group_control(",
+      "            \\Elementor\\Group_Control_Background::get_type(),",
+      "            [",
+      "                'name' => 'background',",
+      "                'label' => esc_html__('Background', 'plugin-name'),",
+      "                'types' => ['classic', 'gradient',],",
+      "                'exclude' => ['image'],",
+      "                'selector' => '{{WRAPPER}} .tp-banner-slide-overlay',",
+      "                'fields_options' => [",
+      "                    'background' => [",
+      "                        'label' => esc_html__('Overlay Background', 'plugin-name'),",
+      "                        'default' => 'classic',",
+      "                    ],",
+      "                    'color' => [",
+      "                        'default' => '',",
+      "                    ],",
+      "                ],",
+      "            ]",
+      "        );"
+    ],
+    "description": "Elementor Background with custom label"
+  },
     "Condition": {
       "prefix": "Econdition",
       "body": [
@@ -1017,7 +1093,7 @@
     "CSSText": {
       "prefix": "Ecsstext",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'accordion_height',",
         "    [",
         "        'label' => esc_html__( 'Height', 'plugin-name' ),",
@@ -1035,7 +1111,7 @@
     "TypographyColorMargin": {
       "prefix": "Etypothree",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1044,7 +1120,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1054,7 +1130,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1071,7 +1147,7 @@
     "SVGIconStyle": {
       "prefix": "Esvgiconstyle",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_icon_color',",
         "    [",
         "        'label' => esc_html__( 'SVG Color', 'plugin-name' ),",
@@ -1082,7 +1158,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_svg_size',",
         "    [",
         "        'label' => esc_html__( 'SVG Size', 'plugin-name' ),",
@@ -1104,7 +1180,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_svg_padding',",
         "    [",
         "        'label' => esc_html__( 'SVG Padding', 'plugin-name' ),",
@@ -1116,7 +1192,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_svg_margin',",
         "    [",
         "        'label' => esc_html__( 'SVG Margin', 'plugin-name' ),",
@@ -1127,7 +1203,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_svg_border_radius',",
         "    [",
         "        'label' => esc_html__( 'SVG Border Radius', 'plugin-name' ),",
@@ -1152,7 +1228,7 @@
     "Divider": {
       "prefix": "Edivider",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'hr',",
         "    [",
         "        'type' => \\Elementor\\Controls_Manager::DIVIDER,",
@@ -1164,7 +1240,7 @@
     "HeadingControl": {
       "prefix": "Eheading",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_heading',",
         "    [",
         "        'label' => esc_html__( 'Heading', 'plugin-name' ),",
@@ -1178,7 +1254,7 @@
     "AlignmentControl": {
       "prefix": "Ealignment",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_content_align',",
         "    [",
         "        'label' => esc_html__( 'Alignment', 'plugin-name' ),",
@@ -1211,10 +1287,75 @@
       ],
       "description": "Adds text alignment control"
     },
+
+  "HorizontalTextAlignment": {
+    "prefix": "Ehorizontaltext",
+    "body": [
+      "        $this->add_responsive_control(",
+      "            'horizontal_align',",
+      "            [",
+      "                'label' => esc_html__('Horizontal Align', 'plugin-name'),",
+      "                'type' => \\Elementor\\Controls_Manager::CHOOSE,",
+      "                'options' => [",
+      "                    'left' => [",
+      "                        'title' => esc_html__('Left', 'plugin-name'),",
+      "                        'icon' => 'eicon-text-align-left',",
+      "                    ],",
+      "                    'center' => [",
+      "                        'title' => esc_html__('Center', 'plugin-name'),",
+      "                        'icon' => 'eicon-text-align-center',",
+      "                    ],",
+      "                    'right' => [",
+      "                        'title' => esc_html__('Right', 'plugin-name'),",
+      "                        'icon' => 'eicon-text-align-right',",
+      "                    ]",
+      "                ],",
+      "                'default' => 'center',",
+      "                'selectors' => [",
+      "                    '{{WRAPPER}} .slick-dots' => 'text-align: {{VALUE}};',",
+      "                ]",
+      "            ]",
+      "        );"
+    ],
+    "description": "Horizontal Text Alignment"
+  },
+
+  "VerticalAlignment": {
+    "prefix": "Evertical",
+    "body": [
+      "        $this->add_responsive_control(",
+      "            'vertical_align',",
+      "            [",
+      "                'label' => esc_html__('Vertical Align', 'plugin-name'),",
+      "                'type' => \\Elementor\\Controls_Manager::CHOOSE,",
+      "                'options' => [",
+      "                    'top' => [",
+      "                        'title' => esc_html__('Top', 'plugin-name'),",
+      "                        'icon' => 'eicon-v-align-top',",
+      "                    ],",
+      "                    'middle' => [",
+      "                        'title' => esc_html__('Middle', 'plugin-name'),",
+      "                        'icon' => 'eicon-v-align-middle',",
+      "                    ],",
+      "                    'bottom' => [",
+      "                        'title' => esc_html__('Bottom', 'plugin-name'),",
+      "                        'icon' => 'eicon-v-align-bottom',",
+      "                    ]",
+      "                ],",
+      "                'default' => 'bottom',",
+      "                'selectors' => [",
+      "                    '{{WRAPPER}} .slick-dots' => 'align-items: {{VALUE}};',",
+      "                ]",
+      "            ]",
+      "        );"
+    ],
+    "description": "Vertical Alignment"
+  },
+  
     "BorderRadius": {
       "prefix": "Eradius",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_border_radius',",
         "    [",
         "        'label' => esc_html__( 'Border Radius', 'plugin-name' ),",
@@ -1240,7 +1381,7 @@
     "TypographyColorMarginPadding": {
       "prefix": "Etypofour",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1249,7 +1390,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1259,7 +1400,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1271,7 +1412,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    '_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1288,14 +1429,14 @@
     "SettingsOutput": {
       "prefix": "Esettings",
       "body": [
-        "<?php echo esc_html($settings['']) ?>"
+        "<?php echo esc_html($$settings['']) ?>"
       ],
       "description": "Outputs escaped settings value"
     },
     "SwitchControl": {
       "prefix": "Eswitch",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_show',",
         "    [",
         "        'label' => esc_html__( 'Show Navigation', 'plugin-name' ),",
@@ -1312,28 +1453,28 @@
     "WPKses": {
       "prefix": "Ewpkses",
       "body": [
-        "<?php echo wp_kses($settings['title'], wp_kses_allowed_html('post')) ?>"
+        "<?php echo wp_kses($$settings['title'], wp_kses_allowed_html('post')) ?>"
       ],
       "description": "Outputs settings with wp_kses sanitization"
     },
     "EscHtml": {
       "prefix": "Eeschtml",
       "body": [
-        "<?php echo esc_html($settings['']) ?>"
+        "<?php echo esc_html($$settings['']) ?>"
       ],
       "description": "Outputs escaped HTML settings value"
     },
     "IconShow": {
       "prefix": "Eiconshow",
       "body": [
-        "<?php \\Elementor\\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>"
+        "<?php \\Elementor\\Icons_Manager::render_icon( $$settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>"
       ],
       "description": "Renders an icon from settings"
     },
     "ImageStyle": {
       "prefix": "Eimagestyle",
       "body": [
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'image_height',",
         "    [",
         "        'label' => esc_html__('Height', 'plugin-name'),",
@@ -1349,7 +1490,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'image_width',",
         "    [",
         "        'label' => esc_html__('Width', 'plugin-name'),",
@@ -1365,7 +1506,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'image_border_radius',",
         "    [",
         "        'label' => esc_html__('Border Radius', 'plugin-name'),",
@@ -1382,7 +1523,7 @@
     "NavigationStyle": {
       "prefix": "Eswipernav",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'navigation_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1393,7 +1534,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'navigation_color_hover',",
         "    [",
         "        'label' => esc_html__('Hover Icon Color', 'plugin-name'),",
@@ -1404,7 +1545,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'navigation_color_bg_hover',",
         "    [",
         "        'label' => esc_html__('Hover Background Color', 'plugin-name'),",
@@ -1420,7 +1561,7 @@
     "TypographyColor": {
       "prefix": "Etypotwo",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1429,7 +1570,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    '_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1445,7 +1586,7 @@
     "SubtitleStyle": {
       "prefix": "Esubtitlestyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1454,7 +1595,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'subtitle_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1464,7 +1605,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'subtitle_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1476,7 +1617,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'subtitle_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1493,7 +1634,7 @@
     "TitleStyle": {
       "prefix": "Etitlestyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1502,7 +1643,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'title_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1512,7 +1653,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'title_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1524,7 +1665,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'title_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1541,7 +1682,7 @@
     "DescriptionStyle": {
       "prefix": "Edescriptionstyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1550,7 +1691,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'description_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1560,7 +1701,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'description_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1572,7 +1713,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'description_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1589,7 +1730,7 @@
     "SubheadingStyle": {
       "prefix": "Esubheadingstyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1598,7 +1739,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'subheading_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1608,7 +1749,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'subheading_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1620,7 +1761,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'subheading_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1637,7 +1778,7 @@
     "HeadingStyle": {
       "prefix": "Eheadingstyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1646,7 +1787,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'heading_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1656,7 +1797,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'heading_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1668,7 +1809,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'heading_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1685,7 +1826,7 @@
     "HeadingTitleStyle": {
       "prefix": "Eheadingtitlestyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1694,7 +1835,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'headingtitle_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1704,7 +1845,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'headingtitle_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1716,7 +1857,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'headingtitle_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1733,7 +1874,7 @@
     "NameStyle": {
       "prefix": "Enamestyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1742,7 +1883,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'name_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1752,7 +1893,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'name_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1764,7 +1905,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'name_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1781,7 +1922,7 @@
     "PlaceStyle": {
       "prefix": "Eplacestyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1790,7 +1931,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'place_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1800,7 +1941,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'place_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1812,7 +1953,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'place_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1829,7 +1970,7 @@
     "DesignationStyle": {
       "prefix": "Edesignationstyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1838,7 +1979,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'designation_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1848,7 +1989,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'designation_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1860,7 +2001,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'designation_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1877,7 +2018,7 @@
     "DateStyle": {
       "prefix": "Edatestyle",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Typography::get_type(),",
         "    [",
         "        'label' => esc_html__('Typography', 'plugin-name'),",
@@ -1886,7 +2027,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'date_color',",
         "    [",
         "        'label' => esc_html__('Color', 'plugin-name'),",
@@ -1896,7 +2037,7 @@
         "        ],",
         "    ]",
         ");",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'date_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1908,7 +2049,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'date_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1925,7 +2066,7 @@
     "CardStyle": {
       "prefix": "Ecardstyle",
       "body": [
-        "$this->add_control(",
+        "$$this->add_control(",
         "    'card_color',",
         "    [",
         "        'label' => esc_html__( 'Background Color', 'plugin-name' ),",
@@ -1936,7 +2077,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'card_padding',",
         "    [",
         "        'label' => esc_html__( 'Padding', 'plugin-name' ),",
@@ -1948,7 +2089,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'card_margin',",
         "    [",
         "        'label' => esc_html__( 'Margin', 'plugin-name' ),",
@@ -1960,7 +2101,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_responsive_control(",
+        "$$this->add_responsive_control(",
         "    'card_border_radius',",
         "    [",
         "        'label' => esc_html__( 'Border Radius', 'plugin-name' ),",
@@ -1972,7 +2113,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Box_Shadow::get_type(),",
         "    [",
         "        'name' => 'card_box_shadow',",
@@ -1980,7 +2121,7 @@
         "    ]",
         ");",
         "",
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    Group_Control_Border::get_type(),",
         "    [",
         "        'name' => 'card_border',",
@@ -1993,8 +2134,8 @@
     "ConditionalShow": {
       "prefix": "Eshow",
       "body": [
-        "<?php if( !empty( $settings[''] ) ) : ?>",
-        "    <?php echo esc_html($settings['']) ?>",
+        "<?php if( !empty( $$settings[''] ) ) : ?>",
+        "    <?php echo esc_html($$settings['']) ?>",
         "<?php endif ?>"
       ],
       "description": "Conditionally displays settings value"
@@ -2002,7 +2143,7 @@
     "BorderGroup": {
       "prefix": "Ebordergroup",
       "body": [
-        "$this->add_group_control(",
+        "$$this->add_group_control(",
         "    \\Elementor\\Group_Control_Border::get_type(),",
         "    [",
         "        'name' => '_border',",
